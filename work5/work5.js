@@ -21,4 +21,5 @@ for(var j=i;j>0;--j){
 }
 str +='</table>'
 document.getElementById('table2').innerHTML = str
+
 //倒九九乘法表，请自行编写这段代码
