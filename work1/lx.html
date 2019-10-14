@@ -1,60 +1,381 @@
-
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
 <title>lx</title>
+</head>
+<body>
 <script>
+    //控制台输出内容。
    /* var number = 60;
     var name = "xzw";
     console.log(number);
     console.log(name);*/
+
     //var n1 = 50;
     //var n2 = 60;
+
     /*var tmp = n1;
     n1 = n2;
     n2 = tmp;
     console.log(n1);
     console.log(n2);*/
+
     /* n1 = n1 + n2;
      n2 = n1 - n2;
      n1 = n1 - n2;
      console.log(n1);
      console.log(n2);*/
+
     /* var num1 = 0.1;
      var num2 = 0.2;
      console.log(num1 + num2 ==0.3);
      console.log(num1 + num2);
      console.log(0.07 * 100);
     console.log(5/0);*/
+
      /*var str = "hello \"itcast\"";
      console.log(str);*/
+
      /*var a = "hello";
      var b = "xzw";
      var c = a+b;
      console.log(c);*/
+
      /*var a ="100";
      var b = 100;
      var c = a-b;
      console.log(c);*/
+
      /*var num =prompt("请输入一个数字");
      if(isNaN(num)){
          console.log("不是数字");
      }else{
          console.log("是数字");
      }*/
+    
      //var age = 18;
-     //console.log(String(age));
+    //var ageString =age.toString();
+    //console.log(ageString);
+
      //var result =true;
     // var resultString = result.toString();
     // console.log(resultString);
-     //var age = 18;
+
+    //var age = 18;
     // var str = age + "岁";
-    // console.log(str);
+    //console.log(str);
+
     //var str ="" + 18;
     //console.log(str);
+
+//var num1 = Number(true);
+//console.log(num1);
+
+//var num3 = Number(123);
+//console.log(num3);
+
+//var num4 = Number("A");
+//console.log(num4);
+
+//var b = !!"123";
+//console.log(b);
+
+//var name = "谢梓威";
+//var age  = 18;
+//var sex = "man";
+//alert(name + age + sex);
+
+ //A+=9; (A=A+9) a = a+9;
+ //B-=7; (B=B-7) b = b-7;
+ //C*=6; (C=C*6) c = c*6;
+ //D/=5; (D=D/5) d = d/5;
+
+/* var j = 17;
+ var k = 18;
+ //var bj = j>k;
+ var bj = j<k;
+ alert(bj);*/
+
+ /*var j = "18";
+ var k = 18;
+ //var bj = j==k;
+ var bj = j!==k;
+ alert(bj);*/
+
+ /*var age = 17;
+ console.log(!age);*/
+
+/*var a = 17;
+var b = 18;
+console.log(a < 20 && b++ < 1);*/
+
+/*var a = 17;
+var b = 18;
+console.log(a > 20 || b++ < 1);*/
+ 
+/*var a = 17;
+var b = 18;
+if(a>b){
+    alert(a);
+}else{
+    alert(b);
+}*/
+
+//使用三元运算符来进行运算。 （boolean表达式? 操作1 : 操作2）;
+/*var a = 17;
+var b = 18;
+alert(a>b ? a : b);*/
+
+//使用三元运算符进行三个数的运算，先比较a和b，找出大的值，再与c进行比较，求出最终的值。
+/*var a = 17;
+var b = 18;
+var c = 25;
+(a>b ? a : b) > c ? alert(a>b ? a : b) : alert(c);*/
+
+//按位与运算，先获取两个数的二进制位，再比较相同位上的数，如果都为1，则为1，否则为0。
+/*var n = 9&8;
+alert(n);*/
+
+//按位左移，把某个数字的二进制位数同时左移N位，
+/*var n =9<<2;
+alert(n);*/
+
+//运算符是具有优先级的，最高级：(),{}.最低级是赋值运算符。
+
+
+//案例，计算圆的周长与面积。
+
+//body内输入框代码。
+/*<div>
+            <p>圆的半径:<input id="r" type="text"></p>
+            <p>圆的周长:<input id="cir" type="text"></p>
+            <p>圆的面积:<input id="area" type="text"></p>
+        </div>*/
+//
+
+/*var r = prompt('请输入圆的半径');
+    r = parseFloat(r) && Number(r);
+    if (!isNaN(r)) {
+        var cir = 2 * Math.PI * r;
+        var area = Math.PI * r * r;
+         document.getElementById('r').value = r;
+         document.getElementById('cir').value = cir.toFixed(2);
+         document.getElementById('area').value = area.toFixed(2);
+    } else {
+        alert('请输入正确的数字');
+    }*/
+
+    //流程控制值if语句。1.if语句 2.if else 语句。3.if elseif elseif 语句
+    // 4.if else if else if else 语句。
+    /*var weather = 'sunn';
+    if(weather == 'rain'){
+        document.write('miss');
+
+    } else if(weather == 'snow') {document.write('love');
+    } else if(weather == 'sun'){document.write('sweet');
+    } else {document.write('happy');
+}*/
+
+//Switch语句，break起到一个打破循环的作用。
+/*var n = 7;
+switch(n){
+    case 1:
+    document.write('Monday');
+    break;
+    case 2:
+    document.write('Tuesday');
+    break;
+    case 3:
+    document.write('wednesday');
+    break;
+    case 4:
+    document.write('Thursday');
+    break;
+    case 5:
+    document.write('Friday');
+    break;
+    case 6:
+    document.write('Saturday');
+    break;
+    default:
+    document.write('Sunday');
+}*/
+
+//if语句之间可以互相进行嵌套。
+/*var n = 7;
+var m = 8;
+if(n ==7){
+    if(m ==8){
+        alert('bingo');
+    }
+
+}else{
+    alert('mistake');
+
+}*/
+
+//Switch语句拓展
+/*var n = 77;
+switch(true){
+    case 70<n:
+    document.write('你真是太聪明了！');
+    break;
+    case 80<n:
+    document.write('真是太可惜了呢。');
+    break;
+}*/
+
+//While循环
+/*var n = 7;//(While循环变量的初始化)
+while(n<=177){//(While循环条件的判断)
+    //循环体
+    document.write(n + "<br/>");
+    n++;//(循环变量的改变)
+}*/
+
+//循环输出1到100的数字。
+/*var n = 1;
+while(n<=100){
+    document.write(n + "<br/>");
+    n++;
+}*/
+
+//循环输出1到100的偶数。
+/*var n = 1;
+while(n<=100){
+    if(n%2==0){
+document.write(n +  " ");
+    }
+    n++;
+}*/
+
+//循环输出1到100的奇数。
+/*var n = 1;
+while(n<=100){
+    if(n%2!=0){
+        document.write(n + " ");
+
+    }
+    n++;
+}*/
+
+//输出1到100的和。
+/*var n =1;
+var sum = 0;
+while(n<=100){
+    sum = sum + n;
+    n++;
+}
+document.write("sum为:" + sum);*/
+
+//dowhile循环
+/*var n = 1;
+do{
+document.write(n + " ");
+}while(n>=100)
+n++;{
+}
+//while循环
+var z = 1;
+while(z>=100){
+    document.write(z + " ");
+    z++;
+}*/
+
+//for循环,循环输出1到100的数字。
+/*for(var n = 1;n<=100;n++){
+    document.write(n + " ");
+
+}*/
+
+//for循环，循环输出1到100的偶数。
+/*for(var n = 1;n<=100;n++){
+    if(n%2==0){
+        document.write(n + " ");
+
+    }
+}*/
+
+//使用for循环输出标题。
+/*for(var n =1;n<=7;n++){
+alert(n);
+document.write("<h"+n+">h"+n+"</h"+n+">");
+}*/
+
+//使用break终止死循环。
+/*var name = prompt('请输入用户名')
+var password = prompt('请输入密码')
+while(true){
+    if(name == "xzw" && password == "010507"){
+        alert("登录成功");
+        break;
+    }else{
+        alert("用户名或者密码输入错误");
+        name = prompt("请重新输入用户名");
+        password = prompt("请重新输入密码");
+    }
+
+}
+alert("登录完成");*/
+
+//计算1到100的和，除去所有个位上是9的数的和。
+/*var n = 1;
+var sum = 0;
+while(n<=100){
+    if(n%10 == 9){
+        n++;
+    }else{
+        sum = sum + n;//可以写成sum += n;
+        n++;
+    }
+}
+alert('1到100除去个位上是9的数的和为:' + sum);*/
+
+//console.log输出每一步除去个位上是9的数的和。
+/*var n = 1;
+var sum = 0;
+while(n<=100){
+    if(n%10 ==9){
+        n++;
+        continue;//使用continue来马上终止此次循环，进入下次循环。
+    }else
+    {
+        sum +=n;
+        n++;
+    }
+    console.log('到现在为止除去个位上是9的数的和为:' + sum);//控制台输出到现在为止除去个位上是9的数的和。
+
+}
+alert('1到100除去个位上是9的数的和为:' + sum);*/
+
+//简易版，console.log输出每一步除去个位上是3的数以及使用continue来终止此次循环，进入下次循环。
+     /*var n =1;
+     var sum = 0;
+     while(n<=10){
+         if(n%10 ==3){
+             n++;
+             continue;
+         }else{
+             sum +=n;
+             n++;
+         }
+console.log('到现在为止除去个位上是3的数的和为:' + sum);
+     }
+     alert('到现在为止除去个位上是3的数的和为:' + sum);*/
+
+     //星星金字塔。
+     /*document.write("<p align='center'>");
+     for(var i=1;i<=5;i++){
+         for(var j=1;j<=2*i-1;j++){
+            document.write("*");
+         }
+         document.write("<br/>");
+     }
+     document.write("</p>");*/
+
+     //
      </script>
-</head>
-<body>
 </body>
 </html>
