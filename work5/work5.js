@@ -1,8 +1,8 @@
 //9X9的空表，请自行编写这段代码
 str = '<table border="1">'
-for(let n=1;n<10;++n){
+for(let n=1;n<10;n++){
     str +='<tr>'
-    for(var z=n;z<10;++z){
+    for(var z=1;z<10;z++){
         str +='<td>&nbsp;</td>'
     }
     str += '</tr>'
