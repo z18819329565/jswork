@@ -22,4 +22,16 @@ for(var j=i;j>0;--j){
 str +='</table>'
 document.getElementById('table2').innerHTML = str
 
+//
+
 //倒九九乘法表，请自行编写这段代码
+str = '<table border="1">'
+for(var z=9;z>0;--z){
+    str +='<tr>'
+for(var c=z;c>0;--c){
+    str +='<td>'+ z+"X"+ c +"="+ z*c +'</td>'
+}
+str +='</tr>'
+}
+str +='</table>'
+document.getElementById('table3').innerHTML = str
