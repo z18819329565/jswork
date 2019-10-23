@@ -6,6 +6,13 @@
 <title>lx</title>
 </head>
 <body>
+    <form>
+        <select id="province">
+            <option value="-1">请选择省份</option>
+        </select>
+        <select id="city"></select>
+        <select id="country"></select>
+    </form>
 <script>
     //控制台输出内容。
    /* var number = 60;
@@ -388,8 +395,379 @@ console.log('到现在为止除去个位上是3的数的和为:' + sum);
      }
 document.write("</table>");*/
 
-//
-     
+//数组
+
+//创建一个新数组
+/*var a = new Array();
+//给数组赋值
+a[0] = "7";
+a[1] = "17";
+a[2] = "27";
+a[3] = "37";
+a[4] = "47";
+a[5] = "57";
+a[6] = "67";
+a[7] = "77";
+//给数组取值
+//alert(a[7]);*/
+//数组里面的值相加
+/*var arr =[17,27,37,47,57,67,77,27,37,47,57,67,77,27,37,47,57,67,77,27,37,47,57,67,77,27,37,47,57,67,77,27,37,47,57,67,77];
+// var sum = arr[0]+arr[1]+arr[2]+arr[3]+arr[4]+arr[5]+arr[6];
+var sum = 0;
+var length = arr.length;//将arr.length赋值给一个变量length，这样会使效率变高，否则效率降低。
+for(var i=0;i<=arr.length-1;i++){//使用arr.length来求得数组的长度。
+    sum = sum+arr[i];
+}
+document.write(sum);*/
+
+//寻找数组中的最大值。
+/*var arr =[0,1,2,3,4,5,6,7];
+var max = arr[3];
+for(var i=0;i<arr.length;i++){
+    if(max<arr[i]);
+    max = arr[i];
+}
+document.write('最大值为:' + max);*/
+//求数组的平均值。
+/*var arr =[0,1,2,3,4,5,6,7];
+var sum =0;
+var len = arr.length;
+for(var i=0;i<arr.length;i++){
+    sum = sum +i
+    var mean = sum/len;
+}
+document.write('平均值为:'+ mean);*/
+
+//二维数组的创立
+/*var arr1 =[1,2,3];
+var arr2 =[4,5,6];
+var arr3 =[7,8,9];
+
+var arr =[arr1,arr2,arr3];
+var arr =[
+    [1,2,3],
+    [4,5,6],
+    [7,8,9]
+];*/
+
+//二维数组的求和
+/*var arr =[
+    [17,27,37,47,57,67,77],
+    [7,17,27,37],
+    [17,27,37,47]
+];
+var sum =0;
+for(var i=0;i<arr.length;i++){//arr[i]
+    for(var z=0;z<arr[i].length;z++){
+        sum =sum + arr[i][z];
+    }
+
+}
+document.write('二维数组的和为:'+sum);*/
+
+//求二维数组的最大值
+/*var arr=[
+    [17,27,37,47,57,67,77],
+    [77,47,27,37],
+    [67,57,17,27]
+];
+var max=arr[0][0];
+for(var i=0;i<arr.length;i++){
+    for(var z=0;z<arr[i].length;z++){
+        if(max<arr[i][z]){
+            max =arr[i][z];
+        }
+
+
+    }
+
+}
+document.write('二维数组的最大值为:'+max);*/
+
+//求二维数组的最大值的下标。
+/*var arr=[
+[17,27,37,47,57,67,77],
+[27,47,67,87,97,107],
+[777,77,7,87,97,17]
+];
+var max=arr[0][0];
+var subi;
+var subz;
+for(var i=0;i<arr.length;i++){
+    for(var z=0;z<arr[i].length;z++){
+        if(max<=arr[i][z]){
+            max =arr[i][z];
+            subi =i;
+            subz =z;
+        }
+
+    }
+
+}
+document.write('二维数组的最大值为:'+max);
+document.write('二维数组的最大值的下标为:'+subi+","+subz);*/
+
+//二维数组的转置。就是把二维数组中的横向元素转换为纵向元素。
+/*var arr= [['a','b','c'],['d','e','f'],['g','h','i'],['j','k','l']];
+var res= [];
+for (var i =0;i<arr[0].length;++i){
+    res[i]= [];
+    for (var j =0;j < arr.length;++j){
+        res[i][j] = arr[j][i];
+
+    }
+
+}
+console.group("转置前: ");
+console.log(arr);
+console.groupEnd();
+console.group("转置后:");
+console.log(res);
+console.groupEnd();*/
+
+
+//数组的冒泡排序。
+/*var s = 0;
+var s1 = 0;
+var arr = [17, 27, 57, 97, 37, 47];
+//循环控制趟数。
+for(var i = 0;i<arr.length-1;i++){
+    //控制两两比较的次数。
+    for(var z =0;z<arr.length-1;z++){
+        //两两比较，从小到大排序。
+        if(arr[z] > arr[z+1]){
+            var change = arr[z];
+            arr[z] = arr[z+1];
+            arr[z+1] = change;
+
+        }
+
+        s++;//记录内循环的次数。
+    }
+    s1++;//记录外循环的次数。
+}
+console.log('外循环的次数为:'+ s1++);
+console.log('内循环的次数为:'+ s++);
+console.log(arr);*/
+
+
+//效率更高，使内循环次数减少。
+/*var s = 0;
+var s1 = 0;
+var arr = [17, 27, 57, 97, 37, 47];
+//循环控制趟数。
+for(var i = 0;i<arr.length-1;i++){
+    //控制两两比较的次数。
+    for(var z =0;z<arr.length-1-i;z++){
+        //两两比较，从小到大排序。
+        if(arr[z] > arr[z+1]){
+            var change = arr[z];
+            arr[z] = arr[z+1];
+            arr[z+1] = change;
+
+        }
+
+        s++;//记录内循环的次数。
+    }
+    s1++;//记录外循环的次数。
+}
+console.log('外循环的次数为:'+ s1++);
+console.log('内循环的次数为:'+ s++);
+console.log(arr);*/
+
+//效率更加高，使内外循环次数减少。
+// var s = 0;
+// var s1 = 0;
+// var arr = [17, 27, 57, 97, 37, 47];
+// //循环控制趟数。
+// for(var i = 0;i<arr.length-1;i++){
+//     //控制两两比较的次数。
+//     var issoft = true;
+//     for(var z =0;z<arr.length-1-i;z++){
+//         //两两比较，从小到大排序。
+//         if(arr[z] > arr[z+1]){
+//             var issoft = false;
+//             var change = arr[z];
+//             arr[z] = arr[z+1];
+//             arr[z+1] = change;
+
+//         }
+
+//         s++;//记录内循环的次数。
+//     }
+//     s1++;//记录外循环的次数。
+//     if(issoft){
+//         break;y
+
+//     }
+// }
+// console.log('外循环的次数为:'+ s1++);
+// console.log('内循环的次数为:'+ s++);
+// console.log(arr);
+
+//数组栈方法，用来在开头和末尾添加或者删除元素。
+
+//在末尾删除元素，使用pop。
+// var arr =['x','z'];
+// var last = arr.pop();
+// console.log('删除的元素为:'+last+'-删除后的数组为:'+arr);
+
+//在末尾添加元素，使用Push，可以添加一个或者多个。
+// var arr = ['x','z','w'];
+// var len = arr.push('z','y','y');
+// console.log('在末尾添加元素后长度为:' + len + '-添加新元素后的数组为:' + arr);
+
+// //在开头删除元素，使用shift,可以删除一个。
+// var arr = ['x','z','w'];
+// var first = arr.shift();
+// console.log('在开头删除的元素为:' + first + '-删除开头元素后的数组为:' + arr);
+
+//在开头添加元素，使用unshift,可以添加一个或者多个。
+// var arr = ['w','w'];
+// var len = arr.unshift('x','z');
+// console.log('在开天添加新元素后的数组的长度为:' + len + '-开头添加元素后的数组为：' + arr);
+
+//数值检索方法
+
+//Array.isArray[],用于检索一个值是否为数组。
+
+// var data = ['7','seven',77,'eleven'];
+// console.log(Array.isArray(data));
+
+//includes(),从前向后检测数组中是否含有某个元素。
+
+// var data = ['seven','libaray','77',7];
+// console.log(data.includes(77,2));
+// console.log(data.includes('77',-3));
+
+//indexOf(),从前向后检测数组中某个元素的索引位置。
+
+// var arr = ['seven',7,77,'libary'];
+// var search = 77;
+// if(arr.indexOf(search) === -1){
+//     arr.push(search);
+//     console.log('更新后的数组为:'+arr);
+
+// }else if (arr.indexOf(search) > -1){
+//     console.log(search+'该元素已经在arr数组中。');
+// }
+
+//lastIndexOf(),从后向前检索数组中指定元素的索引位置。
+
+// var res = [];
+// var arr = ['a','b','a','d','a','d'];
+// var search = 'a';
+// var i = arr.lastIndexOf(search);
+// while (i !== -1){
+//     res.push(i);
+//     i = (i > 0 ? arr.lastIndexOf(search, i - 1) : -1);
+    
+
+// }
+// console.log('元素'+search+'在数组中的所有的位置为:' + res);
+
+//数组转字符串。
+
+//使用join让数组转换为字符串，可以用指定的字符串类型，也可以用连接符。
+
+// console.log(['x','z','w'].join());
+// console.log([[04,03],[05,07]].join('-'));
+
+//使用toString()来让数组转换为字符串。
+
+// console.log(['a','b','c'].toString());
+// console.log([[4,5],[1,2]].toString());
+
+//数组的其他方法。
+
+//splice(),在指定位置添加或者删除程序。
+
+// var arr = ['sky','wind','cloud','snow','sun'];
+// //从数组下标3的位置开始，删除2个元素。
+// arr.splice(3,2);
+// console.log(arr);
+
+// //从数组下标1的位置开始，删除1个元素后，再添加snow元素。
+// arr.splice(1,1,'snow');
+// console.log(arr);
+
+// //指定下标4大于数组的长度，则直接在数组末尾添加'hall','sun'元素。
+// arr.splice(4,0,'hail','sun');
+// console.log(arr);
+
+// //从数组下标3的位置开始，添加数组、null\undefind和空数组。
+// arr.splice(3,0,['lala','yaya'],null,undefined,[]);
+// console.log(arr);
+
+//猴子选猴王。
+
+// var total = prompt('请输入猴子的总数');
+// var kick = prompt('请输入踢出第几只猴子');
+// var monkey = [];
+// for(var i = 1; i <=total;++i){
+//     monkey.push(i);
+// }
+// i = 0;
+// while(monkey.length > 1) {
+//     ++i;
+//     head = monkey.shift();
+//     if (i % kick !=0) {
+//         monkey.push(head);
+//     }
+// }
+// console.log('猴王编号为:' + monkey[0]);
+
+//省份城市的三级联动
+
+//省份数组
+var provinceArr = ['广东','新疆','广西'];
+//城市数组
+var cityArr = [
+    ['广州市','深圳市','梅州市'],
+    ['乌鲁木齐市','克拉玛依市','吐鲁番市'],
+    ['南宁市','柳州市','贵港市']
+];
+//区域数组
+var countryArr = [
+   [ ['越秀区','荔湾区','海珠区','天河区','白云区'],
+    ['福田区','罗湖区','南山区','盐田区','宝安区'],
+    ['梅江区','梅县区','兴宁市','平远县','五华县'] ],
+    [['天山区','沙依巴克区','新市区','水磨沟区','头屯河区'],
+    ['克拉玛依区','独山子区','白碱滩区','乌尔禾区'],
+    ['高昌区','鄯善县','托克逊县'] ],
+    [['青秀区','兴宁区','江南区','西乡塘区','邕宁区'],
+    ['柳州市','城中区','鱼峰区','柳南区','柳北区'],
+    ['港北区','港南区','覃塘区','桂平市','平南县'] ]
+];
+
+//第一步
+function createOption (obj,data) {
+    for (var i in data) {
+        var op = new Option(data[i],i);
+        obj.options.add(op);
+    }
+}
+var province = document.getElementById('province');
+createOption(province,provinceArr);
+//第二步
+var city = document.getElementById('city');
+province.onchange = function () {
+    city.options.length = 0;
+    createOption(city,cityArr[province.value]);
+    if (province.value >= 0) {
+        city.onchange();
+    } else {
+        country.options.length = 0;
+    }
+};
+//第三步
+var country = document.getElementById('country');
+city.onchange = function () {
+    country.options.length = 0;
+    createOption(country,countryArr[province.value][city.value]);
+};
+
+
      </script>
 </body>
 </html>

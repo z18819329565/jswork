@@ -20,5 +20,5 @@ function sort(method){
     //尝试看一下logValues.next() 遍历器对象返回的数据结构。
     console.log(logValues.next())
     //用延时方式调用showLog()函数显示排序步骤，50毫秒后调用，调用一次显示一条排序状态。
-    setTimeout("showLog(logvalues,showDiv",50)
+    setTimeout("showLog(logValues,showDiv)", 50)
 }
