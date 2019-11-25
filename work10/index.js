@@ -28,3 +28,5 @@ function stat() {
     console.log(obj)
     document.getElementById('result').innerText =JSON.stringify(obj)
 }
+
+
