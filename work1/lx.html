@@ -5,7 +5,21 @@
     <meta charset="UTF-8">
 <title>lx</title>
 </head>
+<style>
+body{text-align: center;}
+.box{margin: 0 auto;width: 880px;}
+.title{background: #ccc;}
+table{height: 200px;width: 200px;font-size: 12px;text-align: center;float: left;margin: 10px;font-family: arial;}
+</style>
 <body>
+    <h2>谢梓威的大小写转换案例</h2>
+    <p>原数据: <input id="old" type="text"></p>
+    <p>
+        操  作:
+        <input type ="button" value="转大写" onclick="deal('upper')">
+        <input type ="button" value="转小写" onclick="deal('lower')">
+    </p>
+    <p>新数据: <input id="new" type="text"></p>
     <form>
         <select id="province">
             <option value="-1">请选择省份</option>
@@ -13,6 +27,24 @@
         <select id="city"></select>
         <select id="country"></select>
     </form>
+    <h2>闭包事件操作</h2>
+    <ul>
+        <li>CDG</li>
+        <li>CE</li>
+        <li>CLOT</li>
+    </ul>
+
+    <input type="text" id="text1">
+    <select id="symbol">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+    </select>
+    <input type="text" id="text2">
+    <input type="text" id="text3">
+    <input type="button" value="点击计算" onclick="jisuan()"> 
+    <script src="calendar.js"></script>
 <script>
     //控制台输出内容。
    /* var number = 60;
@@ -767,6 +799,1309 @@ city.onchange = function () {
     createOption(country,countryArr[province.value][city.value]);
 };
 
+// //函数封装
+// function getSum (n,m) {
+//     var sum = 0;
+//     for (var i = n;i <= m;i++) {
+//         sum += i;
+//     }
+//     console.log("从" + n + "到" + m + "的和为:" + sum);
+// }
+// getSum(7,700);
+
+// getSum(1,100);
+
+// function getproduct (n,m) {
+//     var product = 1
+//     for (var i = n;i <= m;i++) {
+//         product *= i;
+//     }
+//     console.log("从" + n + "到" + m + "的乘积为" + product);
+// }
+// getproduct(1,10);
+
+// //函数的返回值。
+// function getSum (n,m) {
+//     var sum = 0;
+//     for (var i = n;i <= m;i++) {
+//         sum += i;
+//     }
+//     //返回计算结果
+//     return sum;
+// }
+
+// var sum = getSum(1,10);
+// console.log(sum);
+
+// console.log(getSum(1,100));
+
+//在javascript中,实参和形参的个数可以不一致。
+// function getSum (a,b,c) {
+//     a = a || 0;//防止传入的参数错误
+//     b = b || 0;
+//     c = c || 0;
+//     return a + b + c;
+// }
+
+// var sum = getSum(1,2);
+// console.log(sum);
+
+//求一数组中的最大值
+
+// var array = [7,17,27,77,7777,777];
+// console.log(getMax(array));
+// function getMax(array) {
+//     array = array || [];//判断是否数组
+//     if (array.length == 0) {
+//         return;//返回undefined
+//     }
+//     var max = array[0];//假设数组第一个是最大值，拿来进行比较.
+//     for (var i =  1;i<array.length;i++) {
+//         max = max<array[i] ? array[i] : max;
+//     }
+//     return max;
+// }
+
+//字符串大小写转换
+    // function deal (opt) {
+    //     var str = document.getElementById('old').value;
+    //     switch (opt) {
+    //         case 'upper':
+    //         str = str.toUpperCase();
+    //         break;
+    //         case 'lower':
+    //         str = str.toLowerCase();
+    //         break;
+    //     }
+    //     document.getElementById('new').value = str;
+    // }
+
+    //面试题2
+    //var a;
+    //function f1() {
+        //var b ;
+        //var a ;
+        //b = 9;
+        //console.log(a);
+        //console.log(b);
+        //a = '123';
+    //}
+    //a = 18;
+    //f1();
+    //面试题2代码
+    // var a;
+  
+    // function f1() {
+    //     var b;
+    //     var a;
+    //     b = 9;
+    //     console.log(a);
+    //     console.log(b);
+    //     a = '123';
+    // }
+    // a = 18;
+    // f1();
+
+    //面试题代码
+        // //var a = 18;
+        // function f1() {
+        //     console.log(a);
+        // }
+        // // a = 18;
+        // f1();
+
+        //面试题代码
+        // var fnName;
+        // fnName = function (a,b)  {
+        //     return a + b;
+        // };
+        // console.log(fnName(1,2));
+
+        //面试题代码
+        // function f1() {
+        //     var a;//a是局部变量
+        //     a= b = c = 9;//b、c是全局变量
+        //     console.log(a);
+        //     console.log(b);
+        //     console.log(c);
+        // }
+        // f1();
+        // console.log(c);
+        // console.log(b);
+        // console.log(a);        
+
+
+            //函数表达式
+            // var fnName = function (a,b) {
+            //     return a + b;
+            // }
+            // console.log(fnName(4,3));
+
+            //自调用函数,只能执行一次。
+            // (function () {
+            //     console.log('miss my wife')
+            // })();
+            
+            //回调函数，求两个数数学运算的结果。
+            // function getResult(a,b,fn) {
+            //     fn(a,b);
+            // }
+
+            // var result = getResult(7,7,function(a,b){
+            //     console.log(a + b);
+            // });
+            // console.log(result);
+
+            // //使返回值不是undefined
+
+            // function getResult(a,b,fn) {
+            //     return fn(a,b);
+            // }
+
+            // var result = getResult(7,7,function(a,b){
+            //     return a + b;
+            // });
+            // console.log(result);
+            
+            //简洁方法
+            // function f1(a,fn) {
+            //     fn(a);
+            // }
+
+            // var n = 5;
+            // var myFun = function(a) {
+            //     console.log("a")
+            // };
+            // f1(n,myFun);
+
+            //减法
+            // function getResult(a,b,fn) {
+            //     return fn(a,b);
+            // }
+
+            // var f1 = function(a,b) {
+            //     return a -b;
+            // };
+            // var result = getResult(7,3,f1);
+            // console.log(result);
+
+            //变量的作用域链
+            // var classSeven = "0719"//全局变量
+            // console.log('班号:' + classSeven);
+
+            // function f1 () {
+            //     console.log("f1:" + classSeven);
+            //     function f2 () {
+            //         console.log("f2:" + classSeven);
+            //         function f3 () {
+            //             console.log("f3:" + classSeven);
+            //         }
+            //         f3();
+            //     }
+            //     f2();
+            // }
+            // f1();
+
+            //变量必须先声明，才能使用
+            // var zero = "0";
+            // console.log(zero);
+
+
+            // f1();
+            // function f1 () {
+            //     console.log("I am is f1 function");
+            // }
+
+            //同名变量和同名函数同时存在的情况
+            // subject();
+            // var subject = "javascript";
+            // console.log(subject);
+
+            // function subject () {
+            //     console.log("I am is sub function");
+            // }
+
+            //内部环境可以访问外部环境的变量，反之不然
+            // var week = "Sunday";
+            // function f1 () {
+            //     var weather = "sunshine";
+            //     console.log("星期:" + week);
+            // }
+            // f1 ();
+
+            // console.log("气候" + weather);
+
+            //变量的作用域是声明时决定的，不是使用时。
+            // var week = "Sunday";
+            // function f1 () {
+            //     console.log("星期:" + week);
+            // }
+
+            // function f2 () {
+            //     var week = "Monday";
+            //     f1();
+            // }
+            // f2();
+
+            //变量的作用域是声明时决定的，不是使用时。分析其执行的顺序即可，
+            //函数声明第一个执行，其他代码顺序执行
+                // var subject = "javascript";
+                // function f1 () {
+                //     console.log("星期：" + subject);
+                // }
+
+                // subject = "html";
+                // subject = "java";
+                // f1 ();
+                
+                //顺序执行
+            // var week = "Sunday";
+            // function f1 () {
+            //     console.log("星期:" + week);
+            // }
+
+            // function f2 () {
+            //     var week = "Monday";
+            //     f1();
+            // }
+            // week = "Friday";
+            // f2();
+
+            //递归调用
+            //给递归加了结束的条件。
+            // var i = 0;
+            // function f1() {
+            //     console.log("如果..." + i);
+            //     i++;
+            //     if(i < 8){
+            //         f1();
+            //     }
+            // }
+            // f1();   
+
+            //求n个数的累加
+            //5 5 + 4 + 3 + 2 + 1
+            // function getSum(n){
+            //     if (n == 1) {
+            //         return 1;
+            //     }
+            //     return n + getSum(n - 1);
+            // }         
+            // console.log(getSum(1000));
+
+            //输入一个数，求这个数的各位数字之和
+
+            // function getSum(n) {
+                
+            //     //结束的条件
+            //     if (n < 10) {
+            //         return n;
+            //     }
+            //     //123第一个余数3 + 12各个数字的和
+            //     return n % 10 + getSum(parseInt(n/10));
+            // }
+            // console.log(getSum(123));
+
+            //求Fibonacci的第n个数
+            //1 1 2 3 5 8 13 21 ...
+
+
+                // 5 = 4  +  5 = 3
+                // 4 = 3  +  3 = 2
+                // 3 = 2  +  2 = 1
+                // 2 = 1 
+
+                //5 = 4 + 3
+                //5 = (3 + 1) + (1 + 1)
+                //5 = ((1 + 1)+1) + (1 + 1)
+
+                // function getF(n) {
+                //     if (n<=0) {
+                //         return -1;
+                //     }
+                //     if (n == 1 || n == 2){
+                //         return 1;
+                //     }
+                //     return getF(n - 1) + getF(n - 2);
+
+                // }
+                // console.log(getF(5));
+
+                //闭包函数
+                    //闭包特点: 闭包有权利调用其父级环境的变量信息。
+                // //声明一个闭包函数
+                // function f1() {
+                //     var week = "Monday";
+                //     function f2() {
+                //         console.log("星期:" + week);
+                //     }
+                //     return f2;
+                // }
+                // var ff = f1();//f1执行后返回f2函数，函数(对象)对ff进行赋值(引用赋值)
+                // //以上函数已经形成闭包，ff就是闭包函数.
+                // //调用闭包函数ff，使其发生执行.
+                // ff();
+                //以上通过ff()调用，输出Monday,不好理解
+                //（Monday本身是week的局部变量信息，原则上不能在外部环境访问）
+                //f2和ff是同一个function的两个不同名字，f2是局部变量，ff是全局变量
+                //因此，该function可以在内部、外部环境同时访问。
+                //不论是内部、还是外部环境，只要function执行，就与具体上下级环境没有直接关系。
+                //内部的week永远都是我们自己AO活动对象的属性。
+                //因此，只要该function能访问到，就无视内部变量的来源，其就是函数AO活动对象的属性。
+
+                //闭包使用规则。
+                //同一个闭包机制可以创建多个闭包函数出来，它们彼此没有联系，都是独立的，
+                //并且每个闭包函数都可以保存自己个性化的信息。
+                // function f1(num) {
+                //     //外部变量：变量、参数、函数
+                //     //var num = 100;
+                //     function f2() {
+                //         console.log("数字:" + num);
+                //     }
+                //     return f2;
+                // }
+
+                // //闭包机制每调用一次，就生成一个（闭包）函数。
+                // var fa = f1(100);
+                // var fb = f1(170);
+                // var fc = f1(180);
+
+                // fa();
+                // fb();
+                // fc();
+
+                //闭包使用规则。
+                //同一个闭包机制可以创建多个闭包函数出来，它们彼此没有联系，都是独立的，
+                //并且每个闭包函数都可以保存自己个性化的信息。
+                // function f1 () {
+                //     var num = 200;
+                //     function f2 () {
+                //         console.log("数字:" + num++);
+                //     }
+                //     return f2;
+                // }
+
+                // //生成闭包
+                // var fa = f1();
+                // fa();//数字:200
+                // fa();//数字:201
+                // fa();//数字:202
+
+                // var fb = f1();
+                // fb();//数字:200
+                // fb();//数字:201
+
+                //闭包案例-创建数组元素
+                //我们需要的数组
+                //是4个独立的function，并且每个function内部都有自己可以访问的个性化信息。
+                //因此可以通过闭包来实现。
+                //arr[0] = function(){consloe.log(0);}
+                //arr[1] = function(){consloe.log(1);}
+                //arr[2] = function(){consloe.log(2);}
+                //arr[3] = function(){consloe.log(3);}
+                // var arr = new Array();
+                // for (var i = 0;i < 4;i++) {
+                //     arr[i] = function() {
+                //         console.log(i);
+                //     }
+                //     arr[i]();
+                // }
+                //在此时i的定值为"4"的信息
+                // arr[2](); //2 [4]
+                // arr[1](); //1 [4]
+                // arr[0](); //0 [4]
+                // arr[3](); //3 [4]
+                //以上4个数组元素函数调用没有输出理想的信息，而是4的信息
+                //原因:通过for循环可以生成4个function,并且全部的function都访问i变量
+                //而系统里边i变量只有一个，就是全局变量i,该i变量在第25行就定格为4的信息
+                //而各个元素函数是在26-29行进行调用，因此都调用到4的信息。
+
+                //利用闭包实现制作多个独立的数组元素函数。
+                // var arr = new Array();
+                // for(var i = 0;i < 8;i++) {
+                //     //arr[i] = 闭包
+                //     //通过调用f1()闭包机制，生成多个独立函数，并且每个函数的i的变量都是不同的。
+                //     arr[i] = f1(i);
+                // }
+                // //以上for循环+闭包机制，会创建一下四个function,都是独立的。
+                // //arr[0] = function(){consloe.log(0);}
+                // //arr[1] = function(){consloe.log(1);}
+                // //arr[2] = function(){consloe.log(2);}
+                // //arr[3] = function(){consloe.log(3);}
+                // function f1(n) {
+                //     function f2(){
+                //         console.log(n);
+                //     }
+                //     return f2;
+                // }
+                // arr[0]();
+                // arr[5]();
+                // arr[0]();
+                // arr[7]();
+
+                //闭包事件操作
+
+                //给li设置mouseover和mouseout事件，效果：鼠标滑过高亮显示当前行。
+                 var lis = document.getElementsByTagName('li');
+                 for(var i = 0; i<lis.length;i++) {
+                //     lis[i].onmouseover = function () {
+                //         //this.style.backgroundColor = 'pink';
+                //         lis[i].style.backgroundColor = 'pink';
+                //     }
+                //     lis[i].onmouseout = function () {
+                //         //this.style.backgroundColor = 'lightblue';
+                //         lis[i].style.backgroundColor = 'lightblue';
+                //     }
+                lis[i].onmouseover = over(i);//闭包
+                lis[i].onmouseout = out(i);//闭包
+                }
+                //以上事件访问报错: TypeError: Cannot read property 'style' of undefined
+                //因为此时i的值已经定格为'3'了
+                //以上for循环执行的时候声明对应的function(但是并没有执行),其只是对onmouseover和onmouseout赋值而已
+                //当鼠标滑过li的项目，使得function执行的时候，其内部的i都已经定格为3的信息。
+                //简言之:所有的事件function都是访问同一个i变量，而该i变量的信息为3,所以lis[i]不能获得元素。
+                //而我们需要的事件函数function,它们需要是独立的，内部的i信息分别是0/1/2不同的。
+                //这样我们需要使用闭包函数。
+
+                function over (n) {
+                    function f2() {
+                        lis[n].style.backgroundColor = "lightgreen";
+                    }
+                    return f2;
+                }
+                function out (n) {
+                    function f2() {
+                        lis[n].style.backgroundColor = "";
+                    }
+                    return f2;
+                }
+
+                //案例:网页计算器
+
+                //在页面所获取的都是字符串！！！
+
+                function jisuan() {
+                    //获取第一个input对象的value值。
+                    var obj1 = document.getElementById('text1').value;
+                    //获取第二个input对象的value值。
+                    var obj2 = document.getElementById('text2').value;
+                    //
+                    var symbol = document.getElementById('symbol').value;
+                    //获取第三个input对象
+                    var obj3 = document.getElementById('text3');
+                    obj1 = parseFloat(obj1);
+                    obj2 = parseFloat(obj2);
+                    if (symbol ==  "+") {
+                        var result = obj1 + obj2;
+                    }else if (symbol == "-") {
+                        var result = obj1 - obj2;
+                    }else if (symbol == "*") {
+                        var result = obj1 * obj2;
+                    }else{
+                        var result = obj1/obj2;
+                    }                                                 
+                    obj3.value = result;
+
+                }
+
+                //面向对象
+
+                //js是一个基于对象的多范式的编程语言。
+
+                //在js中所谓的对象就是键值对的集合。
+                //例如:描述人物:name,age,gender
+                // {name:'紫薇'，age:'19',gender:'男'}
+
+                //例如:学生管理:name,age,gender,address,phone
+                //{ name:'梓威',age:'19',gender:'男',address:'广州',phone:188xxxxx}
+
+                //抽象性:如果需要用一个对象描述一个数据，需要抽取这个对象的核心数据。
+                //1.抽取核心数据
+                //2.不在特定条件下不知道是什么
+
+
+                //封装性:对象是将数据与功能组合到一起，即封装。
+                //键值如果是数据(基本数据，复合数据，空数据)，就称为属性。
+                //如果键值是函数，那么就称为方法。
+
+                //对象就是讲属性与方法封装起来
+
+                //方法是将过程封装起来。
+
+                //继承性:自己没有，但是别人有，拿过来成为自己的。
+                //继承是实现复用的一种手段。
+
+                //在C++ 等语言中继承满足一个模板的规则
+                //类是模板，它规定了一个对象应该有什么属性和什么方法
+                //在这些语言中继承是模板之间的继承，一个模板继承另一个模板，那么该模板就有了
+                //另一个模板的成员，那么由该模板创建出来的对象就同时具有两个模板的成员。
+
+                //js中没有明确的继承语法，一般是按照继承的理念实现对象的成员扩充实现继承
+                //因此js中实现继承的方法非常多
+
+                //其中有一个最简单的办法，叫 混入(mix)
+                function mix(o1,o2) {   //在jq中将该函数命名为extend。
+                    for (var k in o2) {
+                        o1[k] = o2[k];
+                    }
+                }
+
+                var o1 = {name:'紫薇'};
+                var o2 = {age:'19'};
+
+                mix(o1,o2);//就是将o2的成员一一加到o1中，使得O1具有两个对象的属性
+
+                
+                //for in 循环，for in 语句用于遍历数组或者对象的属性。
+                // Object.prototype.score = '97';
+                // let people = {
+                //     name:'紫薇',
+                //     age:19,
+                // }
+                // for (let key in people) {
+                //     console.log(key+':'+people[key]);
+                // }
+
+                //1.首先找对象
+                //2.任何操作应该交给对象完成
+
+                //任务需求:使用传统方法
+                //1.创建一个div标签
+                // var div = document.createElement('div');
+                // //2.将div加到页面中
+                // document.body.appendChild('div');
+                // //3.设置div的样式
+                // div.style.border = '1px dashed red';
+                // div.style.width = '400px';
+                // div.style.height = '300px';
+
+                //面向对象的方式去思考：
+                //1.抽取对象(名词提炼法):div body
+                //2.分析属性与方法(动词提炼):加到，设置样式，创建
+
+                //所以需要自己创建一个div的构造函数
+                function DivTag() {
+                    this.DOM = document.createElement('div');
+                    this.add = function(node) {
+                        node.appendChild(this.DOM);
+                        return this;
+                    };
+                    //this.set = function (name,value) {
+                        //this.DOM.style[name] = value;
+                    //};
+                    this.css = function (option) {
+                        for (var k in option) {
+                            this.DOM.style[k] = option[k];
+                        }
+                        return this;
+                    }
+                }
+
+                // var divTag = new DivTag();
+                // divTag.add(document.body);
+                // divTag.css({
+                //     'border':'7px dotted blue',
+                //     'width':'200px',
+                //     'height':'200px',
+                //     'backgroundColor':'pink'
+                // });
+
+                //new DivTag().css().appendTo(body);
+                new DivTag().add(document.body).css({
+                    border:'1px solid red',
+                    width:'100px',
+                    height:'100px'
+                });
+
+                new DivTag().css({
+                    border:'10px solid green',
+                    width:'200px',
+                    height:'200px'
+                }).add(document.body);
+
+                //对象成员访问与遍历
+                // var dog = {hobby:'cry',run:'running'};
+                // function Cat() {
+                //     this.mingzi = "mix orange";
+                //     this.color = "orange";
+                //     this.leg = "four";
+                // }
+                // Cat.prototype = dog;
+                // var Kitty = new Cat();
+
+                // //对象访问成员的方法: 对象[成员名称]、对象.成员名称:
+                // for (var k in Kitty) {
+                //     console.log(k + ":" + Kitty[k]);
+                // }
+
+                //浅拷贝的代码实现
+                // var pCopy = {};
+                // pCopy.name = p.name;
+                // pCopy.age = p.age;
+                // pCopy.car = p.car;
+
+                // //深拷贝的代码实现
+                // var pCopy = {};
+                // pCopy.name = p.name;
+                // pCopy.age = p.age;
+                // pCopy.car = {};
+                // pCopy.car.name = p.car.name;
+
+                //
+                // var p = {
+                //     name:'紫薇',
+                //     age:'19',
+                //     gender:'男',
+                //     copy:function () {
+                //         //1.创建对象
+                //         var temp = {};
+                //         //2.复制属性.在copy中使用this 表示当前对象
+                //         for (var k in this) {
+                //             temp[k] = this[k];
+                //         }
+                //         //3,返回对象
+                //         return temp;
+                //         //需要返回新对象
+                //     }
+                // };
+
+                //  var p2 = p.copy();
+
+                //  p.name = "梓威";
+                //  p.age = "18";
+                //  p.gender = "女";
+
+                //深拷贝
+
+                // var car = {name:'法拉利',
+                // deepcopy: function() {
+
+                // }
+                // };
+                // var p = {name:'紫薇',car:car,
+                // deepCopy:function () {
+                //     //1.创建一个对象
+                //     var temp = {};
+                //     //2.拷贝属性,在判断如果是引用类型需要深拷贝
+                //     for (var k in this) {
+                //         if (typeof this[k] === 'object') {
+                //             temp[k] = this[k].deepCopy();
+                //         } else {
+                //             temp[k] = this[k];
+                //         }
+                //     }
+                //     //3.返回对象
+                //     return temp;
+                // }
+                // }
+                // //需要保证所有的对象中都有copy 方法，那么就可以简化了
+                //写一个deepcopy函数，每一个对象都是用<对象>.deepCopy =deepCopy
+                //来使得当前对象具有拷贝的方法，那么就可以实现深拷贝了。
+
+                //深拷贝
+                // var deepCopy = function () {
+                //     //1.创建一个对象
+                //     var temp = {};
+                //     //2.拷贝属性,在判断如果是引用类型需要深拷贝
+                //     for (var k in this) {
+                //         if (typeof this[k] === 'object') {
+                //             temp[k] = this[k].deepCopy();
+                //         } else {
+                //             temp[k] = this[k];
+                //         }
+                //     }
+                //     //3.返回对象
+                //     return temp;
+                // }
+
+                // var car = {name:'法拉利'};
+                // var p = {name:'紫薇',age : 18,gender:'男',car:car,};
+
+                // //让所有的对象都有拷贝的方法
+                // car.deepCopy = deepCopy;
+                // p.deepCopy = deepCopy;
+
+                // var newP = p.deepCopy();
+
+                // p.name = '梓威';
+                // p.age = 20;
+                // p.gender = '女';
+                // p.car.name = '兰博基尼';
+
+                //构造函数
+
+                //构造函数有什么用?
+                //1.初始化数据
+                //2.在js中给对象添加属性用的， 初始化属性值用
+
+                //创建对象的过程
+                //1.代码: var p = person();
+
+                //2.首先运算符new创建了一个对象，它类似于{},是一个"没有任何成员"的对象
+                //使用new创建对象，对象的类型就是创建它的函数构造名。
+                //使用{}无论如何都是Object类型，相当于"new object".
+
+                //3.然后调用构造函数，为其初始化成员
+                //构造函数在调用的一开始，有一个赋值的操作，即 this  = 刚刚创建出来的对象
+                //因此在构造函数中this 表示刚刚创建出来的对象
+
+                //4.在构造函数中利用对象的动态特性为对象添加成员。
+                //this 在函数(方法)内部，表示调用该函数或(方法)的对象.
+
+                // function Person () {
+                //     this.name = '紫薇';
+                //     this.age = '19';
+                //     this.gender = '男';
+                // }
+                
+                // var p = new Person();
+
+                // //谁调用这个方法，this就指向谁。
+
+                    //String对象
+                    // var str = 'abcdefGHijkd';
+
+                    //charAt()找到索引位置上的字符
+                    //var n = str.charAt(6);
+                    
+                    //charCodeAt(n)找到索引位置上的字符的编码值
+                    //a = 97,A = 65
+                    //var n = str.charCodeAt(0);
+
+                    //indexOf("d")找d在字符串中第一次出现的位置，如果找不到就返回-1.
+                    //var n = str.indexOf("d");
+                    
+                    //lastIndexif("d")找d在字符串中最后一次出现的位置，如果找不到就返回-1.
+                    //var n = str.lastIndexOf("d");
+
+                    //split("d")以字符d分割字符串返回一个数组
+                    //以空字符串分割会把字符串每个字符都当做数组的一项内容
+                    //如果不存在n那么就会把整个字符串当做数组的内容.
+                    //var n = str.split("d");
+
+                    //split("")让每一个字符都分割
+                    //var n = str.split("");
+
+                    //substr(n,m):截取字符串,把字符串从n的位置开始截取m个。
+                    //var n = str.substr(0,2);
+
+                    //substr(n,m):如果只有一个参数n,那么就从n的位置开始，一直截取，截取到最后为止。
+                    //var n = str.substr(3);
+
+                    //substring(n,m):截取字符串:把字符串从n的位置开始截取，截取到m的位置
+                    //注意:能够取到n但是取不到m.取不到m的值.
+                    //var n = str.substring(0,3);
+
+                    //substring(n,m),如果只有一个参数n，意思就是从n开始截取，截取到最后.
+                    //var n = str.substring(2);
+
+                    //toLowerCase()；把字符串中的字母转换成小写形式.
+                    //var n = str.toLowerCase();
+
+                    //toUpperCase():把字符串中的字母转换成大写形式.
+                    //var n = str.toUpperCase();
+
+                    //join(u)加入某个字符u,用u连接数组的每项组成字符串,如果以空字符串连接那么
+                    //就不会加入新的内容直接把数组的每项内容连接.
+                    // var n = str.join(u)
+                    // document.write(n);
+
+                    //Number对象
+                    
+                    //1. 十进制
+                    var score = 90;
+                    console.log(score); //90
+
+                    //2. 八进制数 0数字
+                    //八进制数---->十进制: 各个数字*8的位数-1次方的算术和
+                    console.log(023);     //2*8+3 = 19
+                    console.log(053);     //5*8+3 = 43
+                    console.log(0327);    //3*8*8+2*8+7 = 215
+                    console.log(06142);   //6*8*8*+1*8*8+4*8+2 = 3170
+                    console.log(029);     //29,恢复为10进制数，不是八进制数
+
+                    //十六进制数  (10A 11B 12C 13D 14E 15F)
+                    //十六进制数--->十进制:各个数字*16的位数-1次方的算术和
+                    console.log(0x47);    //4*16+7 = 71
+                    console.log(0xD3);    //13*16+3 = 71
+                    console.log(0X79F);   //7*16*16+9*16+15 = 1951
+
+                    //浮点数
+                    console.log(13.42);
+                    console.log(3.1415906);
+                    console.log(0.25); //推荐使用，可读性好
+                    console.log(.25);
+                    console.log(35.0);
+
+                    //最大数与最小数
+                    //最大:Number.MAX_VALUE;
+                    console.log(Number.MAX_VALUE);//1.7976931348623157e+308 ===== 1.79*10的308次方
+                    //最小:Number.MIN_VALUE;
+                    console.log(Number.MIN_VALUE);//5e-324 ====== 5*10的负324次方 ===0.0000..323个零..00005
+                    
+                    //科学计数法
+                    console.log(34.1690264e+5); //34.1690264*10的5次方 = 34166902.64
+                    console.log(64286.195e-7);  //64286.195*10的负7次方 = 0.0064286.195
+
+                    //无穷大的数
+                    //例如:两个最大数的算术和超出了javascript的表示范围,就显示无穷大infinity
+                    console.log(Number.MAX_VALUE+Number.MAX_VALUE); //Infinity
+
+                    //Math对象
+                    //Math.pow(n,m);  求n的m次方.
+                    //var n = Math.pow(2,2);
+
+                    //Math.abs(n);    求n的绝对值
+                    //var n = Math.abs(-6);
+
+                    //Math.round(n);  求n四舍五入的值.
+                    //var n = Math.round(6.77);
+
+                    //Math.floor(n);  求n的向下取整的值:不大于n的最大整数
+                    //var n = Math.floor(7.9);
+
+                    //Math.ceil(n);   求n的向上取整的值：不小于n的最小整数.
+                    //var n = Math.ceil(6.9);
+
+                    //Math,random(); 获得0到1之间的随机数，注意:能取到0但是不能取到1.
+                    //var n = Math.random();
+
+                    //6次随机
+                    // //for(var i = 1;i<8;i++) {
+                    //     var n = Math.random();
+                    //     document.write(n);
+                    //     document.write("<br/>")
+                    // }
+
+                    //求0到20的随机数
+                    //0*20 = 0; 1*20 = 20
+                    //var n = Math.random()*20;
+
+                    //求0到60的随机数
+                    //0*60 = 0; 1*60 = 60;
+                    //var n = Math.random()*60;  
+
+                    //求0到90之间的随机数
+                    //0*90 = 0; 1*90 = 90;
+                    //var n = Math.random()*90;
+
+                    //求10到20之间的随机数
+                    //想办法变成0到某某数字:0到10再加上10
+                    //再变换成10到20之间的随机数:Math,raodom()*10 + 10
+                    //var n = Math.random()*10 + 10;
+
+                    //求30到60之间的随机数
+                    //想办法变成0到某某数字:0到30再加上30
+                    //换成30到60之间的随机数:Math,raodom()*30 + 30
+                    //var n = Math.random()*30 + 30;
+
+                    //求60到90之间的随机数
+                    //想办法变成0到某某数字:0到60再加上30
+                    //换成60到90之间的随机数:Math,raodom()*60 + 30
+                    //var n = Math.random()*60 + 30;
+
+                    //求n到m的之间的随机数(缺点:取不到最后一个数)
+                    //(n<m);Math.random()*(m-n) + n
+
+                    //1.在页面输出6个10到30之间的两位数
+                    //2.要求取到30
+                    //1和0的问题:
+                    //0的概率:0.1,0.11,....,0.49999999
+                    //1的概率:0.5,0.57,0.9999999(1,2314,1.214124,1.499999)
+                    // for (var i = 1;i<=6;i++) {
+                    //     //先获取0到20之间的数，再加上10
+                    //     var n = Math.random()*21;//0到20.99999999
+                    //     n += 10;//10到30.999999
+                    //     n = Math.floor(n);
+                    //     document.write(n + "<br />")
+                    // }
+                    
+                    //求任意两个数之间的随机数
+                    //Math.floor(Math,random()*(大数-小数+1)+小数
+                    //console.log(n);
+
+                    //Dat对象
+                    //1.var n1 = new Date();//创建当前时间日期对象
+                    //2.var n2 = new Date("1999/9/9 6:6:6");//创造一个指定的时间日期
+                    //3.var n3 = new Date("1999,9,9,9,9,9");//创建一个指定的时期日期对象
+                    //4.var n4 = new Date(1145262363636);创建一个指定的时间日期对象
+
+                    // var n1 = new Date();//创建当前时间日期对象
+                    // var n2 = new Date("1999/9/9 6:6:6");//创造一个指定的时间日期
+                    // var n3 = new Date(1999,9,9,9,9,9);//创建一个指定的时期日期对象
+                    // var n4 = new Date(1145262363636);//创建一个指定的时间日期对象
+                    // //toLocaleString()以当前本地格式显示
+                    // document.write(n1.toLocaleString()+ "<br />");
+                    // document.write(n2.toLocaleString()+ "<br />");
+                    // document.write(n3.toLocaleString() + "<br />");
+                    // document.write(n4.toLocaleString() + "<br />");
+
+                    //n.getFullYear(); 获取n里面的年份
+                    //var n = new Date();
+                    //var m = n.getFullYear();//获取当前时间的年份
+                    
+                    //n.getMonth(); 获取n里面的月份
+                    //var m = n.getMonth();//获取当前时间的月份
+
+                    //n.getDate(); 获取日期
+                    //var m = n.getDate();//获取日期
+
+                    // //n.getHours; 获取小时
+                    // var m = n.getHours();//获取小时
+
+                    // //n.getMinuters();获取分钟数
+                    // var m = n.getMinutes();
+
+                    // //n.getseconds(); 获取秒数
+                    // var m = n.getSeconds();//获取秒数
+
+                    // //n.getMilliSeconds(); //获取毫秒值
+                    // var m = n.getMilliseconds();//获取毫秒值
+
+                    //n.getDay();获取星期
+                    //var m = n.getDay();
+
+                    //getTime();获取从1970年开始到时间日期的毫秒值
+                    //var m = n.getTime();
+
+                    //setFullyear(); 设置年份
+
+                    //setMonth(); 设置月份
+
+                    //setDate(); 设置日期
+
+                    //setHours(); 设置小时
+
+                    //setMinutes(); 设置分钟数
+
+                    //setSeconds(); 设置秒数
+
+                    //setMillSeconds() 设置毫秒数
+
+                    //!!!setDay(); 设置星期，当设置了年月日之后，星期已经固定好了，设置是无意义的
+                    
+                    //document.write(m);
+                    
+                    //练习：计算到现在为止你生活了多少天
+
+                    var brith = new Date("2001/4/3 7:57:57");//创建出生时候的时间日期对象
+                    var now = new Date();
+                    var n1 = brith.getTime();//获取了1970年到出生的毫秒值
+                    var n2 = now.getTime();//获取了1970年到现在的毫秒值
+                    var result = n2 - n1;//获取生活到现在的毫秒值
+                    result = result/24/60/60/1000;
+                    document.write("谢梓威生活到现在为止经过了" + result + "天");
+
+                    //案例:制作年历
+                   var year = parseInt(prompt('请输入年份:',"2019"));
+                   document.write(calendar(year));
+
+                   //错误处理
+
+                   //异常的概念
+                   //异常就是程序在运行过程中出现的错误
+
+                   //在js中出现异常后，浏览器会给出一段错误码,就是错误信息,错误消息由错误类型与错误信息构成。
+
+                   //如何处理异常
+                   //就是要出现异常后还能继续执行.异常最大的特征是一旦代码出现异常，其后的代码就不再执行.
+
+                   //常见的异常有两大类:
+                   //1.运行环境的多样性:
+                   //2.语法错误，代码错误
+
+                   //try-catch(尝试捕获)语法
+                   //即尝试这么做，如果出现错误捕获错误
+                   //try {
+                       //可能出现错误的代码
+                   //} catch (e) {
+                       //处理错误的代码
+                   //}
+                   //...
+
+                   //1.代码正常运行，如果在try中出现了错误，try里面出现错误的语句后面的代码都不执行，直接跳转到catch中
+                   //2.catch中处理错误信息
+                   //3.然后继续执行后面的代码
+                   //4.如果try中没有出现错误，那么不走catch 直接执行后面的代码
+
+                //    //
+                //    try {
+                //        console.log(zzz);
+                //    } catch (e) {//e代表error或者说代表着exception
+                //        console.log('BUG');
+                //        console.log(e);
+                //    }
+                //    console.log('B');
+                //    console.log('U');
+                //    console.log('G');
+
+                //    //如何抛出异常
+                //    //throw 对象
+
+                //    //1.throw 是抛出异常的语法，其后跟一个对象，即错误消息对象.
+                //    //2.一般该对象使用new Error('错误信息')来创建.也支持任意的对象.
+
+                //    //
+                //    console.log(1);
+                //    console.log(2);
+                //    var o1;
+                //    try{
+                //    //throw {name:'ZiWei',age:19,sex:'男'};
+                //    o1 =  new Error('我是一个自定义的抛出异常');
+                //    throw o1;
+                //    } catch (e) {
+                //        console.log(e === o1);
+                //    }
+                //    console.log(3);
+                //    console.log(4);
+                //    console.log(5);
+
+                //    //
+                //    function showMessage (msg) {
+                //        //要显示一段文本，所以我做一个限制
+                //        if (typeof msg !== 'string') {
+                //         throw new Error('传入的参数不是一个字符串');
+                //        }
+                //        //是正常的
+                //        console.log(msg);
+                //    }
+                  
+                //    //补充: 
+                //    //1.try-catch 语法的最终结构是try-catch-finally
+                //    //...
+                //    try {
+                //        //可能出现错误的代码
+                //    } catch (e) {
+                //        //如果出现错误就执行的代码
+                //    } finally {
+                //     //结束try这个代码块执行,即最后执行
+                //    }
+                //    //....
+
+                //    //2.层级传递 f3中的错误信息会一直向上传.
+                //    function f1 () {
+                //        f2(); //f1称为调用者,或调用函数,f2被称为被调用者,或被调用函数
+                //    }
+                //    function f2() {
+                //        f3();
+                //    }
+                //    function f3() {
+                //        throw new Error('error');
+                //    }
+                //    f1();
+
+                // //代码调试
+                
+                // //原型
+                // //为什么使用原型？
+                // //1.利用对象的动态特性
+                // //构造函数.prototype.xxx = vvvv;
+
+                // //2.利用直接替换
+                // // Student.prototype = {
+                // //     sayHello: function() {},
+                // //     study: function() {}
+                // // };
+
+                // //
+                // function Person () {
+
+                // }
+                // Person.prototype.func = function () {
+                //     console.log('11111');
+                // };
+
+                // var p1 = new Person();
+
+                // Person.prototype = {
+                //     func: function() {
+                //         console.log('22222');
+                //     }
+                // };
+
+                // var p2 = new Person();
+
+                // p1.func();
+                // p2.func();
+
+                // //原型继承
+                // function Person () {}
+
+                // var p = new Person();
+
+                // //1.执行new创建对象
+                // //2.执行构造函数Peson 初始化对象(给对象添加属性)
+                // //3.赋值给变量p
+
+                // //现在p表示的对象默认连接到Person.prototype
+                // Person.prototype.good = function() {alert('Hello');};
+                // p.good();
+
+                // //4.一些问题
+                // //{}构造函数是什么?
+                // //凡是字面量的对象都有构造函数
+                // //{} object
+                // //[] Array
+                // ///./ RegExp //正则表达式
+                // //function ...   Function
+
+                // //_proto_
+                // //以前要访问原型，必须使用构造函数来实现，无法直接使用实例对象来访问原型.
+                // //火狐最早引入属性_proto_  非标准属性，表示使用实例对象引用，但是早期是非标准的.
+                // //通过该属性可以允许使用实例对象直接访问原型
+                
+                // //
+                // function Person () {}
+                // //神笔对象就是Person.prototype
+                // //那么只有使用搞糟函数才可以访问它.
+                // var o = new Person();
+                // //以前不能直接使用o来访问神秘对象
+                // //现在有了_proto_后
+                // //o._proto_也可以直接访问神秘对象（两个下划线）
+                // //那么o._proto_ === Person.prototype
+
+                // //标识符：名字
+                // //使用数字 文字 美元符 组成，不能使用数组开头
+
+                // //1.神秘对象中默认都有一个属性"constructor",翻译为构造器，表示该原型是与什么构造函数联系起来的。
+                
+                // //2.可以访问原型
+                // //由于在开发中除非特殊要求，不要使用实例去修改原型的成员.因此属性开发时使用较少
+                // //但是再调试过程中非常方便，可以轻易的访问原型进行查看成员.
+                
+                // //3.如果在早期的浏览器中使用实例需要访问原型如何处理？
+                // //可以使用实例对象访问构造器，然后使用构造器访问原型
+                // var o = new Person();
+                // o.constructor.prototype
+
+                // //4.如果给实例继承自原型的属性赋值
+                // function Foo() {}
+                // Foo.prototype.name = 'xzw';
+                // var o1 = new Foo();
+                // var o2 = new Foo();
+                // o1.name = 'zwx';//不是修改原型中的name 而是自己增加了一个name属性
+                // console.log(o1.name + ',' + o2.name);
+
+                // //Object.create的方法
+                // //是ES5中引入的新方法. 语法:
+                // //Obejct.create(对象) -> 新对象
+                // //功能: 实现继承，创建一个原型继承自参数的对象,
+                // //例如:
+                // var o = {
+                //     sayHello1: function () {console.log('你好');}
+                // };
+                // var o1 = Object.create(o);
+                // o1.sayHello1();
+                // //创建一个新对象o1，该新对象的原型__proto__就是o
+
+                // //创建一个对象，具有数组的方法，并存储数字，遍历出来.
+                // var itcastArr = Object.create([]);
+
+                // //1.存储数据
+                // itcastArr.push(1);
+                // itcastArr.push(2);
+                // itcastArr.push(3,4,5,6);
+
+                // //2.遍历
+                // for (var i = 0;i<itcastArr.length;i++) {
+                //     console.log('[ ' + i + '] = ' + itcastArr[i]);
+                // }
+
+                // //继承
+                // //1.最简单的继承就是将别的对象的属性强加到我的身上，那么我就有这个成员了.
+                // //2.利用原型也可以实现继承，不需要在我的身上添加任何成员，只要原型有了，我就有了
+
+                // //结论
+                // //将属性，方法等成员利用混入的办法，加到构造函数的原型上，那么构造函数的实例就都具有该办法了.
+
+                // //混合式继承
+                // //利用混入，可以让对象继承
+                // // var Person = function() {};
+
+                // // var extend = function (o1,o2) {
+                // //     for ( var k in o2) {
+                // //         o1[k] = o2[k];
+                // //     }
+                // // };
+
+                // // extend(Person.prototype,{
+                // //     run: function() {console.log('I can run');},
+                // //     eat: function() {console.log('I can eat');},
+                // //     sayHello:function() {console.log('Hello,JD');}
+                // // });
+
+                // // var p1 = new Person();
+                // // var p2 = new Person();
+
+                // // p1.run();
+                // // p1.eat();
+                // // p1.sayHello();
+
+                // // p2.run();
+                // // p2.eat();
+                // // p2.sayHello();
+
+                // //代码改良
+                // var Person = function () {};
+
+                // Person.prototype.extend = function(o) {
+                //     for (var k in o) {
+                //         this[k] = o[k];
+                //     }
+                // };
+
+                // Person.prototype.extend({
+                //     run: function() {console.log('I can run');},
+                //     eat: function() {console.log('I can eat');},
+                //     sayHello:function() {console.log('Hello,JD');}
+                // });
+
+                // var p1 = new Person();
+                // var p2 = new Person();
+
+                // p1.run();
+                // p1.eat();
+                // p1.sayHello();
+
+                // p2.run();
+                // p2.eat();
+                // p2.sayHello();
+
+                //混合式继承复杂描述
+
+                //1.new DivTag() 用来创建div对象
+
+                //2.appendTo 加到某元素上
+
+                //3.扩展
+                //img,p,span,a,...
+
+                //4.无论方法怎么写，方法是谁调用的,this就是谁。
+
+                
+
+
+
+
+                   
+
+
+                
+                   
+                    
+
+                    
+
+
+
+
+
+                
+            
+
+                
+
+                
 
      </script>
 </body>
