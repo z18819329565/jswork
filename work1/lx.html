@@ -1618,7 +1618,7 @@ city.onchange = function () {
                     console.log(053);     //5*8+3 = 43
                     console.log(0327);    //3*8*8+2*8+7 = 215
                     console.log(06142);   //6*8*8*+1*8*8+4*8+2 = 3170
-                    console.log(029);     //29,恢复为10进制数，不是八进制数
+                    console.log(027);     //29,恢复为10进制数，不是八进制数
 
                     //十六进制数  (10A 11B 12C 13D 14E 15F)
                     //十六进制数--->十进制:各个数字*16的位数-1次方的算术和
@@ -2077,6 +2077,89 @@ city.onchange = function () {
                 //img,p,span,a,...
 
                 //4.无论方法怎么写，方法是谁调用的,this就是谁。
+
+                //静态成员与实例成员的概念
+
+                //也是从面向对象的变成语言中引入的
+
+                //1.静态成员表示的是静态方法和静态属性的概念.所谓的静态,就是由构造函数所提供的.
+                //2.实例成员表示的是实例方法和实例属性.所谓的实例就是由构造函数所创建的对象.
+
+                //一般工具型方法都由静态成员提供，一般与实例对象有关的方法都由实例成员表示.
+
+                //属性搜索原则
+                //1.原型链
+                //2.属性搜索原则，
+                //所谓的属性搜索原则,就是对象在访问属性与方法的时候，首先在当前对象中查找.
+                //如果对象没有该成员，那么在其原型对象中查找
+                //如果原型对象含有该成员，那么停止查找，直接使用
+                //如果原型还没有，就到原型的原型中查找
+                //如此往复,直到Object.prototype 还没有，那么就返回undefined.
+                //如果是调用方法就报错，该XXXX不是一个函数
+
+                //对象的原型链
+                //1.凡是对象就有原型
+                //2.原型也是对象
+
+                //凡是对象就有原型，那么原型又是对象，因此凡是给定义一个对象，那么就可以找到他的原型，原型还有原型，
+                //那么如此下去，就构成一个对象的序列，称该结构为原型链.
+
+                //问题:
+                //1.原型链到底什么时候是一个头
+                //2.一个默认的原型链结构是怎样的
+                //3.原型链结构对已知语法的修正
+
+
+                //原型链的结构
+
+                //凡是使用构造函数创建出对象,并且没有利用赋值的方式修改原型,就说该对象保留默认的原型链.
+
+                //默认原型链结构是什么样子呢?
+
+                // function Person () {}
+                // var p = new Person();
+                //p具有默认的原型链
+                //p -> Person,prototype -> Object,prototype -> null
+
+                //默认的原型链结构就是:
+                //当前对象 -> 构造函数.prototype -> Object.prototype -> null
+
+                //练习:
+                //1.描述出{}的原型链结构
+                //{} -> Object.prototype -> null
+                //2.描述出[] 的原型链结构
+                //[] -> Array.prototype -> Object.prototype -> null
+
+                // function ItcastCollection () {}
+                // ItcastCollection.prototype = [];
+                // var arr = new ItcastCollection();
+                // //arr -> [] -> Array.prototype -> Object.prototype -> null
+
+                //什么是原型式继承
+
+                //所谓的原型式继承就是利用修改原型链的结构(增加一个节点，删除一个节点,修改节点中的成员),
+                //来使得实例对象可以使用整条链中的所有成员.
+
+                //这里的使用规则必须满足属性搜索原则
+
+                //绘制对象的原型链结构
+                //说明:函数中也有__proto__属性,注意,暂时不考虑函数的该属性.
+
+                //案例:表单生成器
+
+                // var elements = [
+                //     {tag: 'input', text:'姓   名:',attr:{type:'text',name:'user'}},
+                //     {tag: 'input', text:'性   别:',attr:{type:'radio',name:'gender'},option:{m:'男',w:'女'}},
+                //     {tag: 'input', text:'爱   好:',attr:{type:'checkbox',name:'hobby[]'},option:{swimming:'游泳',reading:'读书',running:'跑步'}},
+                //     {tag: 'select', text:'住   址:',attr:{name:'area'},option:{'':'--请选择--',bj:'北京',sh:'上海',gz:'广州'}},
+                //     {tag: 'textarea', text:'自我介绍:',attr:{name:'introduce',cols:'50',rows:'5'}},
+                //     {tag: 'input', attr: {type:'submit',value:'提交'}}
+                // ];
+                // document.getElementById('form').innerHTML = new FormBuilder(elements).create();
+                
+
+
+                
 
                 
 
