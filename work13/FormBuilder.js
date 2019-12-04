@@ -18,14 +18,14 @@
             var html = this.item[obj.tag](this.attr(obj.attr), obj.option);
             return '<tr><th>' + obj.text + '</th><td>' + html + '</td></tr>';
         },
-        attr : function (attr) {
+        attr: function (attr) {
             var html = '';
             for (var k in attr) {
                 html += k + '="' + attr[k] + '" ';
             }
             return html;
         },
-        item : {
+        item: {
             input: function(attr,option) {
                 var html = '';
                 if (option === null) {
@@ -42,7 +42,7 @@
                 for (var k in option) {
                     html += '<option value ="' + k + '">' + option[k] +'</option>';
                 }
-                return '<select ' + attr + '>' + html +'</select>';
+                return '<select ' + attr +'>' + html +'</select>';
             },
             textarea: function (attr) {
                 return '<textarea ' + attr + '></textarea>';

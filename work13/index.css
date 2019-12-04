@@ -1,9 +1,9 @@
 body {
-    margin: 20px;
+    margin-top: 20px;
 }
 
 .box {
-    font-family: Tahoma,simsun;
+    font-family: Tahoma, simsun;
     font-size: 12px;
     border: 1px solid #1678BE;
     display: table;
@@ -29,11 +29,11 @@ body {
 
 .box-body td {
     padding-top: 2px;
-    scroll-padding-bottom: 8px;
+    padding-bottom: 8px;
 }
 
 .box-body select {
-    font-family: Tahoma,simsun;
+    font-family: Tahoma, simsun;
     font-size: 12px;
     padding: 2px 5px;
     cursor:pointer;
@@ -50,7 +50,7 @@ body {
 
 .box-body input {
     vertical-align: middle;
-    font-family: Tahoma,simsun;
+    font-family: Tahoma, simsun;
     font-size: 12px;
 }
 
@@ -58,11 +58,11 @@ body {
     padding: 2px;
 }
 
-.box-body input[type = radio] {
+.box-body input[type=radio] {
     margin-top: -1px;
 }
 
-.box-body input[type = submit] {
+.box-body input[type=submit] {
     padding: 4px 15px;
     cursor: pointer;
 }
