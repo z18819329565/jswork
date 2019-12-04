@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>页面自动跳转</title>
+    <style>
+    #d1{
+        font-size: 70px;
+        color: lightblue;
+    }
+    </style>
+</head>
+<body>
+    页面注册成功，页面会在<span id = "d1">7</span>秒后自动跳转到首页
+</body>
+<script>
+//案例:实现页面自动跳转
+
+window.onload = init;
+function init(){
+    window.setTimeout("jump()",7000);
+    window.setInterval("countDown()",1000);
+}
+function jump() {
+    location.replace("file:///E:/javascript/ycck/jswork/work0/index06-07.html");
+}
+function countDown() {
+    var obj = document.getElementById('d1');
+    var n = obj.innerHTML;
+    obj.innerHTML = n - 1;
+}
+
+
+
+</script>
+</html>

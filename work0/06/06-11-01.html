@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Screen对象练习</title>
+</head>
+<body>
+<input type="button" value="点击" onclick="fn()">
+</body>
+
+<script>
+//Screen对象
+
+//Screen.height:获取屏幕的高度
+
+//Screen.width:获取屏幕的宽度
+
+function fn() {
+    //var w = screen.width;
+    //var y = screen.height;
+
+//screen.availHeight:获取除去任务栏的高度
+//scree.availWidth :获取除去任务栏的宽度
+
+var w = screen.availWidth;
+var y = screen.availHeight;
+    alert(w +"," + y);
+}
+
+
+</script>
+</html>

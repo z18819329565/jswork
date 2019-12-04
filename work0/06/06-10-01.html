@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>history对象练习</title>
+</head>
+<body>
+<input type="button" value="点击查看length" onclick="fn()">
+<input type="button" value="点击跳转" onclick="fun()">
+<input type="button" value="点击forward" onclick="func()">
+</body>
+<script>
+//History对象
+
+//History.length:获取浏览记录过的url数量
+function fn() {
+    var n = history.length;
+    alert(n);
+}
+function fun() {
+    location.href = "file:///E:/javascript/ycck/jswork/work0/index06-10-02.html";
+}
+
+//History.forward:加载历史记录中的下一个页面
+function func() {
+    history.forward();
+}
+</script>
+</html>

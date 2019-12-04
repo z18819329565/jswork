@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Location对象练习</title>
+</head>
+<body>
+<input type="button" value="点击" onclick="fn()">
+</body>
+<script>
+//Location对象
+
+//可以作为URL的默认请求端口号的是80
+
+ function fn(){
+     //Location.search:可以获取URL地址中的参数
+
+     //Location.href:返回url信息:可以获取url信息，也可以给其赋值，实现跳转页面
+
+     // var n = location.href;//url信息赋值给n
+     // location.href = "https://dazi.kukuw.com";
+
+     //Location.assign():可以加载新的文档:跳转页面
+     //Location.assign():会产生历史记录
+     //location.assign("https://dazi.kukuw.com");
+
+     //Location.reload():重新加载当前的文档:刷新
+     //location.reload();
+
+     //Location.replace():用新的文档替换当前的文档:跳转
+     //Location.replace():不会产生历史记录
+     location.replace("https://dazi.kukuw.com");
+ }
+
+
+</script>
+</html>

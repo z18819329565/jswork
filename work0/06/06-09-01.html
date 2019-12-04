@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>定时跳转</title>
+    <style>
+    body{background: gray;}
+    div{margin: 20px auto;width: 350px;height: 150px;border: 1px solid #000;background: white;padding: 10px;}
+    h2{text-align: center;}
+    span{font-size: 150%;color: red;margin: 0 10px;}
+    </style>
+</head>
+<body>
+<div>
+    <h2>提交成功</h2>
+    <a href="file:///E:/javascript/ycck/jswork/work0/index06-07.html">
+    <span id="seconds">7</span>秒后系统会自动跳转，也可以单击此链接跳转
+    </a>
+</div>
+</body>
+<script>
+function time(secs,url) {
+var seconds = document.getElementById('seconds');
+seconds.innerHTML = --secs;
+if (secs > 0) {
+    setTimeout('time(' + secs + ', \'' + url + '\')',1000);
+}else {
+    location.href = url;
+}
+};
+time(7,'file:///E:/javascript/ycck/jswork/work0/index06-07.html');
+
+</script>
+</html>
