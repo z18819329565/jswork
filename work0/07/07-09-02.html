@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>获取节点-子节点和兄弟节点</title>
+</head>
+<body>
+    <h2>子节点和兄弟节点</h2>
+    <ul>
+        <li>北京</li>
+        <li>上海</li>
+        <li>广州</li>
+        <li>重庆</li>
+    </ul>
+</body>
+<script>
+//子节点/兄弟节点
+var ull = document.getElementsByTagName('ul')[0];
+
+//firstChild\lastChild:父节点获得第一个/最后一个子节点
+var hh = document.getElementsByTagName('h2')[0];
+console.log(hh.firstChild);
+
+//nextSibling:获得下一个兄弟节点,previousSibling:获得上一个兄弟节点
+var guang = document.getElementsByTagName('li')[2];
+console.log(guang.nextSibling.nextSibling);//<li>重庆<li>
+console.log(guang.previousSibling.previousSibling);//<li>上海<li>
+//childNodes:父节点获得内部全部的子节点信息
+console.log(ull.childNodes);
+
+//length:获得“集合列表”的长度
+console.log(ull.childNodes.length);//7
+//以上属性在主流浏览器中会给考虑空白节点(回车、空格).在低版本浏览器中不考虑。
+//空白节点本质是文本节点。
+</script>
+</html>

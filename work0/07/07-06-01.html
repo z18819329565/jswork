@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>元素属性-属性值操作</title>
+</head>
+<body>
+    <h2>属性值操作</h2>
+    <input type="text" name="username" value="tom" class="orange" weight = "7" /><br />
+    <input type="button" value="获取" onclick="f1()" />
+    <input type="button" value="设置" onclick="f2()" />
+</body>
+<script>
+//属性值操作
+var nm = document.getElementsByTagName('input')[0];
+//1.获取属性值
+function f1() {
+//元素节点node.属性名称;只能操作w3c规定的属性
+console.log(nm.type);//text
+console.log(nm.name);//username
+console.log(nm.value);//tom
+console.log(nm.className);//class是js的关键字，需要变形为className操作
+//console.log(nm.weight); //undefined.不能获得自定义属性数值
+
+//元素节点node.getAttribute(属性名称);规定的和自定义的都可以获取
+console.log(nm.getAttribute('weight'));//130
+console.log(nm.getAttribute('value'));//tom
+
+}
+
+//2.设置(修改)属性值
+function f2() {
+//元素节点node.属性名称 = 值;只能操作w3c规定的属性
+nm.name = "usertel";
+nm.value = "1881932";
+nm.className = "banana";
+//nm.type = "checkbox";//不推荐修改，存在浏览器兼容问题
+nm.weight = 150;//自定义属性修改失败
+
+//元素节点node.setAttribute(名称，值);规定的和自定义的都可以设置
+nm.setAttribute('weight',155);//自定义属性设置可以
+nm.setAttribute('class','pear');//规定属性设置ok
+}
+</script>
+</html>

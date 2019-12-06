@@ -7,8 +7,8 @@ function seckill() {
     let remaining = parseInt((endseconds - nowtime.getTime()) / 1000);
     if (remaining >0) {
         d = parseInt(remaining / 86400);
-        h = parseInt((remaining /3600) % 24);
-        m = parseInt((remaining /60) %60);
+        h = parseInt((remaining / 3600) % 24);
+        m = parseInt((remaining / 60) %60);
         s = parseInt(remaining % 60);
 
         d = d < 10 ? '0' + d : d;

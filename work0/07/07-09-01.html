@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>获取节点</title>
+</head>
+<body>
+    <h2>获得文本节点</h2>
+</body>
+<script>
+//文本节点获取
+var hh = document.getElementsByTagName('h2')[0];
+//元素节点对象.firstChild/lastChild,需要借助div元素节点再获得其内部的文本节点:
+console.log(hh.firstChild);//<TextNode textContent="获得文本节点">
+
+//通过文本节点获得其对应的文本信息
+console.log(hh.firstChild.nodeValue);//获得文本节点
+
+</script>
+</html>

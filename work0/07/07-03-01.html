@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>获取操作的元素</title>
+</head>
+<body>
+    <h2>获得元素节点</h2>
+<input type="text" id="username" name="mingzi" value="zw" /><br />
+<input type="text" id="useremail" name="youxiang" value="1492200346@qq.com" /><br />
+<input type="text" id="usertel" name="dianhua" value="18819329565" /><br />
+</body>
+<script>
+//元素节点获取
+
+//方法:
+//1.document.getElementById(id属性值);
+//每次只能返回一个元素节点对象
+// var email = document.getElementById('useremail');
+// console.log(email);//<input type="text" id="useremail" value="1492200346@qq.com">
+
+// var tel = document.getElementById('usertel');
+// console.log(tel);//<input type="text" id="usertel" value="18819329565" >
+
+// //2.document.getElementsByTagName(tag标签名称);
+// //每次返回一个集合列表对象，可以通过下标方式变为具体元素对象:
+// //列表[下标] 或 列表.item(下标).(不考虑元素对象个数的)
+// var hh = document.getElementsByTagName('h2');
+// console.log(hh);//HTMLCollection[h2]
+// console.log(hh[0]);//<h2>
+
+var its = document.getElementsByTagName('input');
+console.log(its);//HTMLCollection[input,input,input]
+console.log(its[2]);//<input type="text" id="usertel" value="18819329565" >
+console.log(its.item(1));//<input type="text" id="useremail" value="1492200346@qq.com" >
+
+//3.document.getElementsByName(neme属性值);不推荐,有浏览器兼容问题，通常
+//应用在form表单里边，返回的信息同2.有的浏览器针对form表单域才可以使用该方法.
+var email = document.getElementsByName('youxiang');
+console.log(email);//NodeList[input#usermail 属性(attribute)值 = "1492200346@qq.com]
+console.log(email[0]); //<input type="text" id="useremail" name="youxiang" value="1492200346@qq.com" >
+console.log(email.item(0));//<input type="text" id="useremail" name="youxiang" value="1492200346@qq.com" >
+</script>
+</html>

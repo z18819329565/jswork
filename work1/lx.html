@@ -10,6 +10,16 @@ body{text-align: center;}
 .box{margin: 0 auto;width: 880px;}
 .title{background: #ccc;}
 table{height: 200px;width: 200px;font-size: 12px;text-align: center;float: left;margin: 10px;font-family: arial;}
+#div1 {
+    border: 10px solid blue;
+    background: yellow;
+    height: 100px;
+    font-size: 60px;
+    text-align: center;
+}
+/* .box1{margin: 0 auto; position: relative; background: url(C:\JD\网页设计\网页设计2019-11-26\xzw\eason.jpg);width: 702px;height: 378px;}
+.box1 div {float:left;width: 50px; height: 50px; border: 1px solid #ccc; margin-left: 5px;line-height: 50px;text-align: center;
+color: red; position: relative;top:260px;Left: 305px;} */
 </style>
 <body>
     <h2>谢梓威的大小写转换案例</h2>
@@ -44,6 +54,22 @@ table{height: 200px;width: 200px;font-size: 12px;text-align: center;float: left;
     <input type="text" id="text2">
     <input type="text" id="text3">
     <input type="button" value="点击计算" onclick="jisuan()"> 
+    <p><input type="button" value="CLOSE" onclick="fn()"></p>
+    <iframe name="frame01"></iframe>
+    <iframe name="frame02"></iframe>
+    <iframe name="frame03"></iframe>
+    <p><input type="button" value="OPEN" onclick="openWin()">
+    <input type="button" value="RESIZE" onclick="changeWin()"></p>
+    <p><input type="button" value="CLEARA TIMER" onclick="clear()"></p>
+    <p><div id="div1" >
+            TIME
+        </div></p>
+        <!-- <div class="box1">
+            <div id="d"></div>
+            <div id="h"></div>
+            <div id="m"></div>
+            <div id="s"></div>
+        </div> -->
     <script src="calendar.js"></script>
 <script>
     //控制台输出内容。
@@ -2156,6 +2182,207 @@ city.onchange = function () {
                 //     {tag: 'input', attr: {type:'submit',value:'提交'}}
                 // ];
                 // document.getElementById('form').innerHTML = new FormBuilder(elements).create();
+
+                //BOM对象
+
+                //ECMAscript BOM DOM
+                //发现,
+                //1.window 对象最高级
+                //2.BOM,浏览器对象:brower object Model
+                //3.DOM,文档对象模型:document object Model
+                //4.BOM网页一打开就会存在
+                //5.DOM去操作的代码
+                //6.Document是连接DOM和BOM
+                //Document有下级:其他都没有下级【多窗口】.
+
+                //全局作用域
+                // var area = 'Guangzhou';
+                // function getArea() {
+                //     return this.area;
+                // }
+                // console.log(area);
+                // console.log(window.area);
+
+                // console.log(getArea());
+                // console.log(window.getArea());
+                // console.log(window.Number(area));
+                
+                //Window的方法
+
+                //Window的三个弹出框:
+                //1.alert(); 弹出一个窗口
+                //alert('xzw');
+
+                //2.prompt(); 弹出一个可以让用户输入的窗口,加入提示性语句，也可以加入默认值
+                //如果用户不填写信息点击确认得到的是空字符串.
+                //如果用户点击取消，得到的是null.
+                // var n = window.prompt("请输入你的名字","紫薇");
+                // alert(n);
+
+                //3.confirm("慎独？");弹出一个可以让用户选择的窗口
+                //如果点击确认得到的是true,如果点击去掉得到的是false.
+                // var n = window.confirm("慎独");
+                // alert(n);
+
+                //练习:
+                var n = window.confirm("今天你感到甜了吗");
+                if (n == true) {
+                    var m = window.prompt("那你是因为什么感到甜呢");
+                    if (m == '公主') {
+                        alert("公主有点甜腻，建议适量感知");
+                    } else {
+                        alert("为什么不跟公主玩");
+                    }
+                } else {
+                    alert("每天都是需要一点甜度呢")
+                }
+
+                //window.open:打开一个新窗口
+                //window.open("链接","name","设置");
+                //1.width:设置窗口宽度 2.height:设置窗口高度 3.left:新窗口到左端距离 4.top:新窗口到顶部的距离
+                //5.scrollbars:滚动条(yes,no,1,0) 6.toolbar:工具栏(yes,no,1,0) 7.location:地址栏
+                window.onload = init;
+                function init() {
+                    window.open("https://dazi.kukuw.com","欢迎来到字符王国","width = 300,height = 200,left = 300,top = 100,toolbar = yes,scrollbars = yes");
+                }
+
+                //window.close:关闭窗口
+                function fn () {
+                    window.close();
+                }
+
+                //窗口位置和大小
+                 
+                var mywindow;
+
+                function openWin() {
+                    mywindow = window.open('', 'newwin','width = 250,height = 300');
+                    getPosSize();//获取窗口信息
+                } 
+
+                function changeWin() {
+                    mywindow.moveBy(250,250);//将newWin 窗口下移 250像素，右移250像素
+                    mywindow.focus();//获取移动后 newWin窗口的焦点
+                    mywindow.resizeTo(500,350);//修改 newWin窗口的宽度为500，高度为350
+                    getPosSize();//获取窗口信息
+                }
+
+                function getPosSize () {
+                    //获取相对于屏幕窗口的坐标
+                    var x = mywindow.screenLeft,
+                        y = mywindow.screenTop;
+                    //获取窗口和文档的高度和宽度
+                        var inH = mywindow.innerHeight,
+                            inW = mywindow.innerWidth;
+
+                        var outH = mywindow.outerHeight,
+                            outW = mywindow.outerWidth;
+                        mywindow.document.write('<p>相对屏幕窗口的坐标:(' + x + ',' + y + ')</p>');
+                        mywindow.document.write('<p>文档的高度和宽度: ' + inH + ',' + inW + '</p>');
+                        mywindow.document.write('<p>窗口的高度和宽度:' + outH + ',' + outW + '</p><hr>');
+                }
+
+                //框架操作
+
+                //方式1:
+                window.frames['frame01'].document.write("I can't lose,I can't lose,I can't lose.");
+                //方式2:
+                window.frames.frame02.document.write("wait       wait     wait");
+                //方式3:
+                window.frames[2].document.write("I can win,I can win,I can win.");
+
+                //定时器
+
+                //创建定时器
+
+                //一次性定时器
+                //var n = window.setTimeout("js代码",时间t)
+                //执行:是在时间t之后执行js代码[只会执行一次]
+                //时间:以毫秒为单位
+
+                //var n = window.setTimeout("fn()",3000);
+
+                //反复性定时器
+                //var m = window.setInterval("js代码",3000);
+                //执行:是每过时间t就会执行一次js代码[n次]
+                //时间:是以毫秒为单位
+
+                // var m = window.setInterval("fn()",3000);
+                //  function fn() {
+                //      alert(678);
+                // }
+
+                // //清除定时器:
+
+                // //清除一次性定时器
+                // //window.clearTimeout();
+
+                // // function clear() {
+                // //     window.clearTimeout(n);
+                // // }
+
+                // //清除反复性定时器
+                // //window.clearInertval();
+
+                // function clear() {
+                //     window.clearInterval(m);
+                // }
+
+                //注意:要想清除定时器，必须给定时器名字，匿名定时器无法清除
+
+                //练习:网页版时钟
+                window.onload=init;
+                function init() {
+                    fn();
+                    window.setInterval("fn()",1000);
+                }
+                //显示时间的
+                function fn() {
+                    var n = new Date();//获取现在的时间
+                    //获取div对象
+                    var obj = document.getElementById("div1");
+                    obj.innerHTML = n.toLocaleString();
+                }
+
+                // //案例:限时秒杀
+                // var endtime = new Date('2020-4-20 00:00:00'),endseconds = endtime.getTime();
+
+                // var d = h = m = s = 0;
+                // var id = setInterval(seckill,1000);
+                // function seckill() {
+                //     var nowtime = new Date();
+                //     var remaining = parseInt((endseconds - nowtime.getTime()) / 1000);
+
+                //     if (remaining > 0) {
+                //         d = parseInt(remaining / 86400);
+                //         n = parseInt((remaining / 3600) % 24);
+                //         m = parseInt((remaining / 60) % 60);
+                //         s = parseInt(remaining % 60);
+
+                //         d = d < 10 ? '0' + d : d;
+                //         h = h < 10 ? '0' + h : h;
+                //         m = m < 10 ? '0' + m : m;
+                //         s = s < 10 ? '0' + s : s;
+                //     } else {
+                //         clearInterval(id);
+                //         d = h = m = s = '00';
+                //     }
+                //     document.getElementById('d').innerHTML = d + '天';
+                //     document.getElementById('h').innerHTML = h + '时';
+                //     document.getElementById('m').innerHTML = m + '分';
+                //     document.getElementById('s').innerHTML = s + '秒';
+                // }
+                
+
+
+
+
+
+                
+
+
+
+                
                 
 
 
@@ -2186,6 +2413,10 @@ city.onchange = function () {
 
                 
 
+     </script>
+     <script>
+     window.parent;//如果在框架中，获取父级窗口，否则返回自身引用
+     window.parent.frames;//获取同级别的框架
      </script>
 </body>
 </html>

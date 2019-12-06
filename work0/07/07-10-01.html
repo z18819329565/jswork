@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>节点追加</title>
+</head>
+<body>
+    <h2>节点创建和追加</h2>
+</body>
+<script>
+//节点创建
+//元素节点:document.createElement(tag标签名称)
+//文本节点:document.createTexNode(文本内容)
+//属性设置:node.setAttribute(名称,值)
+
+//节点追加
+//父节点.appendchild(子节点)
+//父节点.insertBefore(newnode,oldnode),newnode放到oldnode的前边
+//父节点.replacechild(newnode,oldnode),newnode替换到oldnode节点
+
+var ull = document.createElement('ul');
+var province = ['辽宁','山东','浙江'];
+var city = ['沈阳','济南','杭州'];
+for (var k in province) {
+    //1.创建li的元素节点
+    var lii = document.createElement('li');
+    //2.创建li内部的文本节点
+    var txt = document.createTextNode(province[k]);
+    //3.给li节点设置属性
+    lii.setAttribute('city',city[k]);
+    //给li追加文本节点
+    lii.appendChild(txt);
+    //给ull追加li节点
+    ull.appendChild(lii);
+}
+
+//给body追加ul节点
+document.getElementsByTagName('body')[0].appendChild(ull);
+</script>
+</html>

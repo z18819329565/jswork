@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>元素样式</title>
+</head>
+<body>
+    <h2 style="width: 300px; height: 200px; background-color: lightgreen;">css样式操作</h2>
+    <input type="button" value="获取css" onclick="f1()" />
+    <input type="button" value="设置css" onclick="f2()" />
+</body>
+<script>
+//dom对css样式操作,dom操作css样式只能操作“行内样式”(css样式分为行内、内部、外部)
+var hh = document.getElementsByTagName('h2')[0];
+//1.获取css样式(只能获得“行内”样式)
+function f1() {
+//元素节点.style.css样式名称:
+console.log(hh.style.width);
+console.log(hh.style.height);
+//操作复合样式例如background-color/border-left-color,font-size
+//需要变为backgroundColor,中横线去掉，后边首字母大写。(原因:javascript的变量名规则不允许有“-”中横线)
+console.log(hh.style.backgroundColor);//
+}
+
+//2.设置css样式(有则修改，没有则添加)
+function f2() {
+hh.style.width = "500px";
+hh.style.backgroundColor = "lightblue";
+hh.style.color = "purple";
+}
+
+</script>
+</html>

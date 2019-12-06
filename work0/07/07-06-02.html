@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>元素属性-属性节点获取</title>
+</head>
+<body>
+    <h2>属性节点获取</h2>
+    <input type="text" name="username" value="tom" class="orange" weight = "70" /><br />
+</body>
+<script>
+//属性节点获取
+var nm = document.getElementsByTagName('input')[0];
+
+//以“对象”形式返回对应节点内部的全部属性节点信息;
+//各个属性节点就是“对象”的成员属性
+console.log(nm.attributes);
+
+//attrlist.属性名称;获得具体属性节点
+console.log(nm.attributes.value);//value = "tom"
+console.log(nm.attributes.value.nodeType);//2
+console.log(nm.nodeType);//1
+
+//获得节点类型nodeType:
+//节点.nodeType:
+//1----->元素节点
+//2----->属性节点
+//3----->文本节点
+//9----->文档节点
+</script>
+</html>

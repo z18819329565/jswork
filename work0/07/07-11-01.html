@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>节点删除</title>
+</head>
+<body>
+        <h2>节点创建和追加</h2>
+        <ul id="north">
+        <li city ="沈阳" id="ning" >辽宁</li>
+        <li city ="济南" id="shan" >山东</li>
+        <li city = "长春">吉林</li>
+        </ul>
+        <ul id="south">
+        <li city ="杭州" >浙江</li>
+        </ul>
+        <input type="button" value="复制和追加" onclick="f1()" />
+</body>
+<script>
+//节点复制操作
+//被复制节点.cloneNode(true/false)
+//true:深层复制(本身节点和其内部节点)
+//false:浅层复制(本身节点)
+
+function f1() {
+var ning = document.getElementById('ning');
+//var cpning = ning.cloneNode(false);//浅层复制
+var cpning = ning.cloneNode(true);//深层复制
+
+//被追加的父节点<ul id = "south">
+var south  = document.getElementById('south');
+
+//把复制的辽宁追加给south
+south.appendChild(cpning);
+}
+</script>
+</html>

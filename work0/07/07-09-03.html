@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>获取节点-父节点</title>
+</head>
+<body>
+        <h2>子节点和兄弟节点</h2>
+        <ul>
+            <li>北京</li>
+            <li>上海</li>
+            <li>广州</li>
+            <li>重庆</li>
+        </ul>
+</body>
+<script>
+//获取父节点
+//node.parentNode;
+var hai = document.getElementsByTagName('li')[1];
+console.log(hai.parentNode);//ul
+console.log(hai.parentNode.parentNode);//body
+console.log(hai.parentNode.parentNode.parentNode);//html
+console.log(hai.parentNode.parentNode.parentNode.parentNode);//Document
+</script>
+</html>
