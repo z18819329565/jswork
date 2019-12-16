@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件的绑定方式</title>
+    <style>
+    h2 {width: 300px;height: 200px;background: darkcyan;}
+    </style>
+</head>
+<body>
+    <h2>dom2级事件设置</h2>
+</body>
+<script>
+    //dom2级事件的简单设置
+var hh = document.getElementsByTagName('h2')[0];
+hh.addEventListener('mouseover',function() {
+    //背景颜色发生变化
+    //hh或this他们代表的对象一致，都是h2标题标签的“元素节点对象”
+    //记住:在事件处理函数里面，this关键字一般都代表事件的“元素节点对象”
+    //console.log(hh);//<h2>
+    //console.log(this)//<h2>
+    this.style.backgroundColor = "lightgreen";
+    this.style.color = "red";
+});
+</script>
+</html>

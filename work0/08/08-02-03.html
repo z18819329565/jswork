@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件的绑定方式</title>
+    <style>
+    h2 {width: 300px;height: 200px;background: darkcyan;}
+    </style>
+</head>
+<body>
+    <h2>dom2级事件设置</h2>
+    <input type="button" value="取消" onclick="cancel()">
+</body>
+<script>
+    //取消事件
+var hh = document.getElementsByTagName('h2')[0];
+hh.addEventListener('mouseover',function() {
+    this.style.backgroundColor = "lightgreen";
+    this.style.color = "red";
+});
+hh.addEventListener('mouseout',function() {
+    this.style.backgroundColor = "darkcyan";
+    this.style.color = "black";
+});
+function f1() {
+    console.log(7);
+}
+function f2() {
+    console.log(77);
+}
+function f3() {
+    console.log(777);
+}
+//为同一个h2元素对象绑定多个click事件
+//f1()没有括号,是函数的名字对click进行赋值，(而非函数运行返回的信息复制)
+hh.addEventListener('click',f1);
+hh.addEventListener('click',f2);
+hh.addEventListener('click',f3);
+
+function cancel() {
+    //取消事件操作
+    hh.removeEventListener('click',f2);
+    hh.removeEventListener('click',f3);
+
+    //匿名函数不能取消
+    hh.removeEventListener('mouseover',function() {
+        this.style.backgroundColor = "lightblue";
+    });
+}
+</script>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件对象</title>
+</head>
+<body>
+    <h2>事件对象的作用(阻止浏览器默认动作)</h2>
+    <form action="08-03-05.html" method="post">
+        <p>用户名:<input type="text" name="username" /></p>
+        <p>密码:<input type="text" name="userpwd" /></p>
+        <p>邮箱:<input type="text" name="usermail" /></p>
+        <p><input type="submit" value="注册" /></p>
+    </form>
+</body>
+<script>
+//对表单进行验证，如果验证不正确，则浏览器禁止跳转
+var fm = document.getElementsByTagName('form')[0];
+//给fm设置提交事件
+fm.onsubmit = function(evt) {
+    alert('邮箱格式不正确');
+    //return false;//停止浏览器跳转
+
+    evt.preventDefault();//停止浏览器跳转
+}
+
+//阻止浏览器默认动作
+//return false ,其只针对dom1级事件起作用
+//evt.preventDefault(); dom1和dom2都起作用
+// fm.addEventListener('submit',function(evt) {
+//     alert('邮箱格式不正确dom2');
+//     //return false;//失效
+//     evt.preventDefault();//停止浏览器跳转
+// });
+</script>
+</html>

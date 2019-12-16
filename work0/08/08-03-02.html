@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件对象</title>
+    <style>
+    h2{width: 300px;height: 2000px;background-color: pink;}
+    </style>
+</head>
+<body>
+    <h2>事件对象作用</h2>
+</body>
+<script>
+//1.鼠标事件对象获得坐标信息
+var hh = document.getElementsByTagName('h2')[0];
+hh.onclick = function(evt) {
+    //获得鼠标相对DOM区域坐标
+    console.log(evt.clientX + "---" + evt.clientY);
+    //获得鼠标相对DOM区域坐标(给考虑滚动条距离)
+    console.log(evt.pageX + "---" + evt.pageY);
+    //获得鼠标相对屏幕的坐标
+    console.log(evt.screenX + "---" + evt.screenY);
+
+}
+
+</script>
+</html>

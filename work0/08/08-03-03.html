@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件对象</title>
+    <style>
+    h2{width: 300px;height: 200px;background-color: pink;}
+    </style>
+</head>
+<body>
+    <h2>事件对象作用</h2>
+    <input type="text" id="username" value="" />
+</body>
+<script>
+//感知被触发键子信息
+var it = document.getElementById('username');
+ it.onkeydown = function (evt) {
+     var num = evt.keyCode;
+    //console.log(evt.keyCode);
+    if(num == 38) {
+        console.log('上');
+    }
+    if(num == 40) {
+        console.log('下');
+    }
+    if(num == 37) {
+        console.log('左');
+    }
+    if(num == 39) {
+        console.log('右');
+    }
+ }
+
+</script>
+</html>

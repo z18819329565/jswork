@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件对象</title>
+    <style>
+    h2{width: 300px;height: 200px;background-color: pink;}
+    </style>
+</head>
+<body>
+    <h2>事件对象操作</h2>
+</body>
+<script>
+var hh = document.getElementsByTagName('h2')[0];
+//主流浏览器(包括IE9以上),事件对象就是事件处理函数的第一个形参
+hh.onclick = function(evt) {
+    alert(evt);
+}
+</script>
+</html>

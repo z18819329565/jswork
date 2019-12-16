@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>页面事件</title>
+<script>
+    //以下js代码执行的时候，需要html代码的支持
+    //因此最好先执行html代码(使得html先进入内存),在执行js代码
+    //先执行html或css,最后执行js代码,该过程就是一个“加载过程”,
+    //加载事件可以保证加载过程的实现
+    function jiazai() {
+    var hh  = document.getElementsByTagName('h2')[0];
+    hh.onclick = function() {
+        alert('123');
+    }
+}
+function f22() {
+    alert(777);
+}
+//window.onload = jiazai;//加载事件设置第二种方式
+
+window.onload = function() {//匿名函数加载事件
+    jiazai();
+    f22();
+}
+    </script>
+<body>
+    <h2>加载事件</h2>
+</head>
+</body>
+
+</html>

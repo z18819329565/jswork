@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单事件</title>
+</head>
+<body>
+    <form id="register">
+        <label>用户名:<input id="user" type="text"></label>
+        <input type="submit" value="提交">
+        <input type="reset" value="重置">
+    </form>
+</body>
+<script>
+var regist = document.getElementById('register');
+var user = document.getElementById('user');
+
+regist.onsubmit = function(event) {
+    var event = event || window.event;
+    console.log(event.type);
+
+    return confirm('请确认是否要提交,提交后将不可更改');
+    return user.value ? true : false;
+};
+
+regist.onreset = function(event) {
+    var event = event || window.event;
+    console.log(event.type);
+
+    return confirm('请确认是否要重置信息,重置后表单填写的内容将全部清空');
+}
+</script>
+</html>
