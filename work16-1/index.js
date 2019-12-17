@@ -26,10 +26,10 @@ function getStyle(obj,attr) {
     }
 }
 var obj = document.getElementById('box');
-console.log(obj);
 obj.onclick = function () {
     var left = parseInt(Math.random() * 700);
     var top = parseInt(Math.random() * 700);
     console.log(left);
+    console.log(top);
     animate(obj,{'left':left, 'top': top});
 };

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>字符类别</title>
+</head>
+<body>
+    
+</body>
+<script>
+// \d: 表示数字[0-9]
+// \D: 表示非数字[^0-9]
+var str = "this is 20150812";
+var reg = /\d+/; //["20150812"]
+var reg = /\D+/; //["this is "]
+
+// \w: 表示字母、数字、下划线其中一个[a-zA-Z0-9]
+// \W: 非字母、数字、下划线
+var str = "YueHan_999@163.com";
+var reg = /\w+/; //["YueHan_999"]
+var reg = /\W+/; //["@"]
+
+// \s: 表示空格
+// \S: 表示非空格
+var str = "Today      Wednesday";
+var reg = /[a-z]+\s{7}[a-z]+/i; //["Today Wednesday"]
+
+// \b: 表示单词边界
+// \B: 表示非单词边界
+var str = "this is php0609 banji";
+var reg = /\bis\b/; //严格匹配到第二个is
+//this was php0609 banji;
+//replace(被替换内容[字符串/正则模式],替换内容)
+var new_str = str.replace(reg,'was');
+console.log(new_str);//this was php0609 banji
+
+var rst = str.match(reg);
+console.log(rst);
+</script>
+</html>
