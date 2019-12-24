@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>RegExp类中的方法</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var reg = /([A-Z])([A-Z])\1\2/g;
+    console.log(reg.test('1234'));
+    console.log(reg.test('abab'));
+    console.log(reg.test('CDCD'));
+    console.log(reg.test('EfEf'));
+</script>
+
+<script>
+var reg = /[\s+]/g;
+console.log(reg.exec('h i'));
+console.log(reg.lastIndex);
+console.log(reg.source);
+console.log(reg.global);
+console.log(reg.ignoreCase);
+console.log(reg.multiline);
+</script>
+</html>

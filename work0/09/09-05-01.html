@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>字符限定</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //没有特殊说明就是“单次”匹配
+    //从字符串左边找到第一个符合模式的内容即可
+
+   
+    
+
+    // * : 其前面那个单元出现0次或以上（任意次数）
+    var str = "2015-8-10";
+    var reg = /[0-9]*/; //["2015"]
+    var str = "Today is 810";
+    var reg = /[0-9]*/; //[""]字符“T”位置出现了0次数字
+
+     // + : 其前面那个单元出现1次或以上（至少出现1次）
+     //“google”中的“o”出现至少1次
+     var str =  "gooooooooogle";
+     var reg = /go+gle/; //["gooooooooogle"]
+
+     // ? : 其前面那个单元出现0次或1次
+     //"gogle"中的“o”最多只能出现1次，要么不出现
+     var str = "gogle";
+     var reg = /go?gle/;
+
+     var rst = str.match(reg);
+     console.log(rst);
+
+    var rst = str.match(reg);
+    console.log(rst);
+</script>
+</html>

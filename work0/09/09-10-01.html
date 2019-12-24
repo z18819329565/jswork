@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>String类中的方法</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var str = '123*abc.456';
+    console.log(str.search('.*'));
+    console.log(str.search(/[\.\*]/));
+</script>
+
+<script>
+var str = 'test@123.com';
+var reg = /[@\.]/;
+var split_res = str.split(reg);
+console.log(split_res);
+</script>
+
+<script>
+var str = 'We are a family';
+var reg = /\s/;
+var split_res = str.split(reg,2);
+console.log(split_res);
+</script>
+</html>

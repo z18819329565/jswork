@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>字符限定</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //() : 标记一个子表达式的开始和结束位置
+    //作用:
+    //1.提高子表达式优先级
+    var str = "gogogogogogogle";
+    var reg = /(go)+gle/;
+
+    //2.从一个大的字符串里边拆分小的字符串出来
+    var str = '<h3 style="padding-bottom:0px;">北京</h3>';
+    var reg = /<.*>(.*)<.*>/;
+
+
+    var rst = str.match(reg);
+    console.log(rst);
+    console.log('城市:' + rst[1]);//城市: 北京
+</script>
+</html>

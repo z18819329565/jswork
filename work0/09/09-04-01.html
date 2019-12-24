@@ -38,8 +38,7 @@
         background: #4393c9;
         border: 1px solid #fff;
         color: #fff;
-        font: 14px;
-        bolder
+        font: 14px bolder;
     }
     </style>
 </head>
@@ -58,7 +57,7 @@
             result.innerHTML = '输入错误,年份为4位数字表示';
             return false;
         }
-        return.innerHTML = '';
+        result.innerHTML = '';
         return true;
     }
     function checkMonth(obj) {
@@ -73,7 +72,7 @@
 
     var form = document.getElementById('form');
     var result = document.getElementById('result');
-    var input = document.getElementsByTagName('input');
+    var inputs = document.getElementsByTagName('input');
     form.onsubmit = function() {
         return checkYear(inputs.year) && checkMonth(inputs.month);
     };
