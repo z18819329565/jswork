@@ -11,3 +11,6 @@ $('#toAllRight').click(function () { //全部右移
 $('#toAllLeft').click(function () { //全部左移
     $('#left>select').append($('#right>select>option'));
 });
+
+
+
